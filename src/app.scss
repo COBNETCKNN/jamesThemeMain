@@ -1,3 +1,131 @@
+// importing tailwind components
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+// importing local fonts
+@font-face {
+    font-family: AvenirNextLTPro-Regular;
+    src: url("fonts/AvenirNextLTPro-It.otf") format("opentype");
+  }
+
+// custom CSS
+
+body {
+    background-color: black;
+}
+
+.logoWrapper {
+    width: 200px;
+    padding: 20px;
+}
+
+.headerMenuWrapper ul {
+    display: flex;
+
+    .menu-item {
+        padding: 0.5rem;
+    }
+}
+
+.socialMediaIcons a {
+    padding: 0.5rem;
+}
+
+// sidebar items background colors
+
+.acquisitionBackgroundItem-0 {
+    background-color: #FFB3B3;
+}
+
+.acquisitionBackgroundItem-1 {
+    background-color: #BBF3DD;
+}
+
+.acquisitionBackgroundItem-2 {
+    background-color: #C2C8FF;
+}
+
+.acquisitionBackgroundItem-3 {
+    background-color: #F7B7EC;
+}
+
+.acquisitionBackgroundItem-4 {
+    background-color: #FFF9A3;
+}
+
+.acquisitionBackgroundItem-5 {
+    background-color: #bef264;
+}
+
+.acquisitionBackgroundItem-6 {
+    background-color: #5eead4;
+}
+
+.acquisitionBackgroundItem-7 {
+    background-color: #93c5fd;
+}
+
+.acquisitionBackgroundItem-8 {
+    background-color: #c4b5fd;
+}
+
+.acquisitionBackgroundItem-9 {
+    background-color: #f9a8d4;
+}
+
+.conversionBackgroundItem-0 {
+    background-color: #BDF1FF;
+}
+
+.conversionBackgroundItem-1 {
+    background-color: #FFB3B3;
+}
+
+.conversionBackgroundItem-2 {
+    background-color: #f9a8d4;
+}
+
+.conversionBackgroundItem-3 {
+    background-color: #9333ea;
+}
+
+.conversionBackgroundItem-4 {
+    background-color: #818cf8;
+}
+
+.conversionBackgroundItem-5 {
+    background-color: #2dd4bf;
+}
+
+.moreBackgroundItem-0 {
+    background-color: #C2C8FF;
+}
+
+.moreBackgroundItem-1 {
+    background-color: #FFFAB1;
+}
+
+.moreBackgroundItem-2 {
+    background-color: #F7B7EC;
+}
+
+
+.moreBackgroundItem-3 {
+    background-color: #BBF3DD;
+}
+
+
+.moreBackgroundItem-4 {
+    background-color: #818cf8;
+}
+
+
+.moreBackgroundItem-5 {
+    background-color: #f9a8d4;
+}
+
+
+
+
+
