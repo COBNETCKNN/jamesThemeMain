@@ -1,8 +1,8 @@
 <?php get_header(); ?>
 
 
-<div class="homeInner bg-white h-screen container mx-auto">
-    <div class="grid grid-cols-5 gap-1 h-screen">
+<div class="homeInner bg-white h-max container mx-auto">
+    <div class="grid grid-cols-6 gap-1 h-max pb-10">
         <!-- LEFT SIDE -->
         <div class="col-span-1">
             <!-- Logo -->
@@ -20,31 +20,21 @@
                 </a>
             </div>
             <!-- Custom Taxonomies -->
-            <?php 
-            global $post;
-
-            $args = array(
-                'post_type' => 'post',
-                'post_status' => 'publish'
-            );
-            $postQuery = new WP_Query( $args );
-                if ( $postQuery->have_posts() ) {
-                while ($postQuery->have_posts()) {
-                    $postQuery->the_post();
-
-            ?>
             <!-- Acquisition Custom Taxonomy Sidebar -->
             <div class="customTaxonomyWrapper my-6">
                 <h3 class="sidebarTitle p-1.5 w-fit bg-black text-white font-bold font-avenir uppercase text-sm italic">Acquisition</h3>
-                <div class="customTaxonomyTerms flex grid grid-cols-2 w-8/12 border-solid border-2 border-gray-100 rounded-lg shadow-md font-avenir">
+                <div class="customTaxonomyTerms flex grid grid-cols-2 w-10/12 border-solid border-2 border-gray-100 rounded-lg shadow-md font-avenir">
                 <?php 
                     $terms = get_terms( 'acquisition' );
                     if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
                         $i = 0;
-                        foreach ( $terms as $term ) {
-                            echo '<div class="py-2">';
-                            echo '<span class="acquisitionBackgroundItem-'.$i.' w-fit block py-1 px-4 font-light text-md shadow-md">' . $term->name . '</span>';
-                            echo '</div>';
+                        foreach ( $terms as $term ) { ?>
+
+                            <div class="py-2">
+                            <a class="cat-list_item moreBackgroundItem-<?php echo $i; ?> w-fit block py-1 px-4 font-light text-md shadow-md"  data-slug="<?php echo $term->slug; ?>" href="#!"><?php echo $term->name; ?></a>
+                            </div>
+
+                            <?php 
                             $i++;
                         }
                     }
@@ -54,15 +44,18 @@
             <!-- Conversion Custom Taxonomy Sidebar -->
             <div class="customTaxonomyWrapper my-6">
                 <h3 class="sidebarTitle p-1.5 w-fit bg-black text-white font-bold font-avenir uppercase text-sm italic">Conversion</h3>
-                <div class="customTaxonomyTerms w-8/12 border-solid border-2 border-gray-100 rounded-lg shadow-md font-avenir">
+                <div class="customTaxonomyTerms w-10/12 border-solid border-2 border-gray-100 rounded-lg shadow-md font-avenir">
                 <?php 
                     $terms = get_terms( 'conversion' );
                     if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
                         $i = 0;
-                        foreach ( $terms as $term ) {
-                            echo '<div class="py-2">';
-                            echo '<span class="conversionBackgroundItem-'.$i.' w-fit block py-1 px-4 font-light text-md shadow-md">' . $term->name . '</span>';
-                            echo '</div>';
+                        foreach ( $terms as $term ) { ?>
+
+                            <div class="py-2">
+                            <a class="cat-list_item moreBackgroundItem-<?php echo $i; ?> w-fit block py-1 px-4 font-light text-md shadow-md"  data-slug="<?php echo $term->slug; ?>" href="#!"><?php echo $term->name; ?></a>
+                            </div>
+
+                            <?php 
                             $i++;
                         }
                     }
@@ -72,15 +65,18 @@
             <!-- More Custom Taxonomy Sidebar -->
             <div class="customTaxonomyWrapper my-6">
                 <h3 class="sidebarTitle p-1.5 w-fit bg-black text-white font-bold font-avenir uppercase text-sm italic">More</h3>
-                <div class="customTaxonomyTerms flex grid grid-cols-2 w-8/12 border-solid border-2 border-gray-100 rounded-lg shadow-md font-avenir">
+                <div class="customTaxonomyTerms flex grid grid-cols-2 w-10/12 border-solid border-2 border-gray-100 rounded-lg shadow-md font-avenir">
                 <?php 
                     $terms = get_terms( 'more' );
                     if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
                         $i = 0;
-                        foreach ( $terms as $term ) {
-                            echo '<div class="py-2">';
-                            echo '<span class="moreBackgroundItem-'.$i.' w-fit block py-1 px-4 font-light text-md shadow-md">' . $term->name . '</span>';
-                            echo '</div>';
+                        foreach ( $terms as $term ) { ?>
+
+                            <div class="py-2">
+                            <a class="cat-list_item moreBackgroundItem-<?php echo $i; ?> w-fit block py-1 px-4 font-light text-md shadow-md"  data-slug="<?php echo $term->slug; ?>" href="#!"><?php echo $term->name; ?></a>
+                            </div>
+
+                            <?php 
                             $i++;
                         }
                     }
@@ -91,14 +87,10 @@
             <div class="customTaxonomyWrapper my-6">
                 <h3 class="sidebarTitle p-1.5 w-fit bg-black text-white font-bold font-avenir uppercase text-sm italic">Newsletter</h3>
              </div>
-        <?php 
-            }
-        }
-        ?>
 
         </div>
         <!-- RIGHT SIDE -->
-        <div class="col-span-4">
+        <div class="col-span-5">
             <div class="grid grid-cols-2 gap-4 h-20">
                 <!-- Newsletter area -->
                 <div class="flex justify-start items-center">
@@ -162,6 +154,73 @@
                         ?>
 
                     </div>
+
+                </div>
+            </div>
+            <!-- Blog posts -->
+            <div class="project-tiles">
+
+            </div>
+            <div class="blogPostsWrapper mt-16">
+                <div class="grid grid-cols-3 gap-4 mr-5">
+                        <?php 
+
+                        //query to load selected featured post on front page
+                        $args = array(
+                            'post_type' => 'post',
+                            'posts_per_page' => 12,
+                        );
+
+                        $blogPostQuery = new WP_Query($args);
+
+                        while($blogPostQuery->have_posts()){
+                            $blogPostQuery->the_post(); ?>
+
+                            <div class="blogCardBlackOverlay">
+                                <div class="col-span-1 shadow-2xl">
+                                <?php $thumb = get_the_post_thumbnail_url(); ?>
+                                    <div class="relative blogPostCard rounded-2xl" style="background-image: linear-gradient(rgba(0,47,75,0.5) 0%, rgba(220, 66, 37, 0.3) 130%), url('<?php echo $thumb;?>')">
+                                    <h1 class="blogPostCard_title font-sans text-white font-bold text-start"><?php the_title(); ?></h1>
+                                    <?php
+                                        $taxonomyAcquisiton = 'acquisition';
+                                        $termsAcquisition = get_object_term_cache( $post->ID, $taxonomyAcquisiton );
+                                        $output = '';
+                                        foreach($termsAcquisition as $termAcquisition) {
+                                            if(!empty($output))
+                                                $output .= ' | ';
+                                                $output .= '<span class="blogCard_taxonomy__item py-1 px-4 text-sm rounded-2xl absolute bottom-4 right-4 font-medium item-'.$termAcquisition->slug.'">'.$termAcquisition->name.'</span>';
+                                            }
+                                        echo $output;
+                                    ?>
+                                    <?php
+                                        $taxonomyConversion = 'conversion';
+                                        $termsConversion = get_object_term_cache( $post->ID, $taxonomyConversion );
+                                        $output = '';
+                                        foreach($termsConversion as $termConversion) {
+                                            if(!empty($output))
+                                                $output .= ' | ';
+                                                $output .= '<span class="blogCard_taxonomy__item py-1 px-4 text-sm rounded-2xl absolute bottom-4 right-4 font-medium item-'.$termConversion->slug.'">'.$termConversion->name.'</span>';
+                                            }
+                                        echo $output;
+                                    ?>
+                                    <?php
+                                        $taxonomyMore = 'more';
+                                        $termsMore = get_object_term_cache( $post->ID, $taxonomyMore);
+                                        $output = '';
+                                        foreach($termsMore as $termMore) {
+                                            if(!empty($output))
+                                                $output .= ' | ';
+                                                $output .= '<span class="blogCard_taxonomy__item py-1 px-4 text-sm rounded-2xl absolute bottom-4 right-4 font-medium item-'.$termMore->slug.'">'.$termMore->name.'</span>';
+                                            }
+                                        echo $output;
+                                    ?>
+
+                                    </div>
+                                </div>
+                            </div>
+                        <?php
+                        }
+                        ?>
 
                 </div>
             </div>

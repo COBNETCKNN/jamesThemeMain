@@ -6,8 +6,13 @@ function portfolioTheme_files() {
     wp_enqueue_style('fontAwesomeCSS', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css');
 
     //enqueue JS
-   wp_enqueue_script('mainJS', get_stylesheet_directory_uri() . '/js/main.js', array(), 1.0, true);
-   wp_enqueue_script('fontAwesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js');
+    wp_enqueue_script('jquery');
+    wp_enqueue_script('mainJS', get_stylesheet_directory_uri() . '/js/main.js', array(), 1.0, true);
+    wp_enqueue_script('fontAwesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js');
+
+    wp_localize_script('ajaxJS', 'wpAjax',
+    array('ajaxUrl' => admin_url('admin-ajax.php'))
+  );
 }
 add_action( 'wp_enqueue_scripts', 'portfolioTheme_files' );
 
@@ -25,6 +30,7 @@ require_once('partials/menu-registration.php');
 
 // Adding theme supports
 add_theme_support( 'custom-logo' );
+add_theme_support( 'post-thumbnails' );
 
 // Removing editor from Pages
 function remove_editor() {
@@ -35,4 +41,38 @@ function remove_editor() {
 // Adding custom image sizes
 add_image_size( 'logo-size', 180, 60, true);
 add_image_size('social-media-icons', 35, 35, true);
+
+
+// Ajax filter for taxonomies
+function filter_projects() {
+
+  $all_terms = get_terms(array('taxonomy' => 'conversion', 'fields' => 'slugs'));
+  $termIds = [7,3,5,4,6];
+  $ajaxposts = new WP_Query([
+    'post_type' => 'post',
+    'posts_per_page' => -1,
+    'tax_query' => [
+       [
+          'taxonomy' => 'conversion',
+          'field'    => 'slug',
+          'terms'    => $all_terms // example of $termIds = [4,5]
+       ],
+    ]
+ ]);
+ 
+  $response = '';
+
+  if($ajaxposts->have_posts()) {
+    while($ajaxposts->have_posts()) : $ajaxposts->the_post();
+      $response .= the_title();
+    endwhile;
+  } else {
+    $response = 'empty';
+  }
+
+  echo $response;
+  exit;
+}
+add_action('wp_ajax_filter_projects', 'filter_projects');
+add_action('wp_ajax_nopriv_filter_projects', 'filter_projects');
 

@@ -6,7 +6,7 @@
 // importing local fonts
 @font-face {
     font-family: AvenirNextLTPro-Regular;
-    src: url("fonts/AvenirNextLTPro-It.otf") format("opentype");
+    src: url("fonts/Montserrat-Light.ttf") format("opentype");
   }
 
 // custom CSS
@@ -125,7 +125,65 @@ body {
     background-color: #f9a8d4;
 }
 
+// Blog Post Taxonomy Items
 
+.item-ads {
+    background-color: #C2C8FF;
+}
 
+.item-content {
+    background-color: #FFFAB1;
+}
+
+.item-sales {
+    background-color: #F7B7EC;
+}
+
+.item-seo {
+    background-color: #BBF3DD;
+}
+
+.item-social {
+    background-color: #818cf8;
+}
+
+.item-copywriting {
+    background-color: #C2C8FF;
+}
+
+.item-landing-page {
+    background-color: #FFFAB1;
+}
+
+.item-brand {
+    background-color: #C2C8FF;
+}
+
+.item-creative {
+    background-color: #FFFAB1;
+}
+
+.item-referral {
+    background-color: #F7B7EC;
+}
+
+.item-retention {
+    background-color: #BBF3DD;
+}
+
+.blogCard_taxonomy__item {
+    color: #030212;
+}
+
+.blogPostCard {
+    height: 200px;
+    background-size: cover;
+}
+
+.blogPostCard_title {
+    font-size: 21px;
+    margin-left: 20px;
+    padding-top: 20px;
+}
 
 
