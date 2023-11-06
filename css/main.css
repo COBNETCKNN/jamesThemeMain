@@ -995,6 +995,13 @@ body {
   opacity: 0.5;
 }
 
+.view-post {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+}
+
 .placeholder\:text-black\/50::-moz-placeholder {
   color: rgb(0 0 0 / 0.5);
 }

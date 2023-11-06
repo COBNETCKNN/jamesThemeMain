@@ -194,38 +194,16 @@
                                     <?php $thumb = get_the_post_thumbnail_url(); ?>
                                         <div class="relative blogPostCard rounded-2xl" style="background-image: linear-gradient(rgba(0,47,75,0.5) 0%, rgba(220, 66, 37, 0.3) 130%), url('<?php echo $thumb;?>')">
                                         <h1 class="blogPostCard_title font-sans text-white font-bold text-start"><?php the_title(); ?></h1>
+                                        <!-- Gettng custom taxonomies associate with teh post -->
                                         <?php
-                                            $taxonomyAcquisiton = 'acquisition';
-                                            $termsAcquisition = get_object_term_cache( $post->ID, $taxonomyAcquisiton );
-                                            $output = '';
-                                            foreach($termsAcquisition as $termAcquisition) {
-                                                if(!empty($output))
-                                                    $output .= ' | ';
-                                                    $output .= '<span class="blogCard_taxonomy__item py-1 px-4 text-sm rounded-2xl absolute bottom-4 right-4 font-medium item-'.$termAcquisition->slug.'">'.$termAcquisition->name.'</span>';
-                                                }
-                                            echo $output;
-                                        ?>
-                                        <?php
-                                            $taxonomyConversion = 'conversion';
-                                            $termsConversion = get_object_term_cache( $post->ID, $taxonomyConversion );
-                                            $output = '';
-                                            foreach($termsConversion as $termConversion) {
-                                                if(!empty($output))
-                                                    $output .= ' | ';
-                                                    $output .= '<span class="blogCard_taxonomy__item py-1 px-4 text-sm rounded-2xl absolute bottom-4 right-4 font-medium item-'.$termConversion->slug.'">'.$termConversion->name.'</span>';
-                                                }
-                                            echo $output;
-                                        ?>
-                                        <?php
-                                            $taxonomyMore = 'more';
-                                            $termsMore = get_object_term_cache( $post->ID, $taxonomyMore);
-                                            $output = '';
-                                            foreach($termsMore as $termMore) {
-                                                if(!empty($output))
-                                                    $output .= ' | ';
-                                                    $output .= '<span class="blogCard_taxonomy__item py-1 px-4 text-sm rounded-2xl absolute bottom-4 right-4 font-medium item-'.$termMore->slug.'">'.$termMore->name.'</span>';
-                                                }
-                                            echo $output;
+                                            $post_id = get_the_ID();
+                                            $terms = get_the_terms($post_id, 'acquisition');
+
+                                            if ($terms && !is_wp_error($terms)) {
+                                                $first_term = reset($terms); ?>
+                                                <span class="blogCard_taxonomy__item py-1 px-4 text-sm rounded-2xl absolute bottom-4 right-4 font-medium item-<?php echo $first_term->slug; ?>"><?php echo $first_term->name; ?></span>
+                                            <?php
+                                            }
                                         ?>
                                         <!-- Reading time -->
                                         <div class="blogPost_readingTime__wrapper">
@@ -238,7 +216,7 @@
                                             </div>
                                         </div>
                                         <!-- Readm more Button -->
-                                        <button data-id="<?php the_ID(); ?>" class="view-post"><?php _e('View More'); ?></button>
+                                        <button data-id="<?php the_ID(); ?>" class="view-post"></button>
                                         </div>
                                         <!-- Modal -->
                                         <div class="modal" id="postModal">

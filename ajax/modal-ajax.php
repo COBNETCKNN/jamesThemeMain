@@ -15,11 +15,17 @@ function load_post_by_ajax_callback() {
         while($posts->have_posts()) {
             
             $posts->the_post();
+
+            // Get the post ID or some way to retrieve the post slug
+            $post_id = get_the_ID(); // Example: Assuming you're inside a loop
+
+            // Get the post slug
+            $post_slug = get_post_field('post_name', $post_id);
             
             $arr_response = array(
                 'title' => get_the_title(),
                 'content' => get_the_content(),
-                'link' => get_the_permalink()
+                'post_slug' => $post_slug,
             );
         }
         wp_reset_postdata();
