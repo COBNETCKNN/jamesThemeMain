@@ -174,7 +174,7 @@
             </div>
             <!-- Blog posts -->
             <div id="response">
-                <div class="blogPostsWrapper mt-16">
+                <div class="blogPostsWrapper mt-10">
                     <div class="grid grid-cols-3 gap-4 mr-5">
                             <?php 
 

@@ -42,52 +42,11 @@ function remove_editor() {
 add_image_size( 'logo-size', 180, 60, true);
 add_image_size('social-media-icons', 35, 35, true);
 
-
-// Ajax filter for taxonomies
-function filter_projects() {
-
-  $all_terms = get_terms(array('taxonomy' => 'conversion', 'fields' => 'slugs'));
-  $termIds = [7,3,5,4,6];
-  $ajaxposts = new WP_Query([
-    'post_type' => 'post',
-    'posts_per_page' => -1,
-    'tax_query' => [
-       [
-          'taxonomy' => 'conversion',
-          'field'    => 'slug',
-          'terms'    => $all_terms // example of $termIds = [4,5]
-       ],
-    ]
- ]);
- 
-  $response = '';
-
-  if($ajaxposts->have_posts()) {
-    while($ajaxposts->have_posts()) : $ajaxposts->the_post();
-      $response .= the_title();
-    endwhile;
-  } else {
-    $response = 'empty';
-  }
-
-  echo $response;
-  exit;
-}
-add_action('wp_ajax_filter_projects', 'filter_projects');
-add_action('wp_ajax_nopriv_filter_projects', 'filter_projects');
-
-// Do NOT include the opening PHP tag
-
-// =============================================================
-// ENQUEUE AJAX SCRIPTS
-// =============================================================
+// Enqueue Ajax scripts
 function add_ajax_scripts() {
-  wp_enqueue_script( 'ajax_term', get_stylesheet_directory_uri() . '/ajax/acquisition-ajax.js', array('jquery'), NULL, true );
-  wp_enqueue_script( 'ajax_term', get_stylesheet_directory_uri() . '/ajax/conversion-ajax.js', array('jquery'), NULL, true );
+  wp_enqueue_script( 'ajax_term', get_stylesheet_directory_uri() . '/ajax/filter-ajax.js', array('jquery'), NULL, true );
 	wp_localize_script( 'ajax_term', 'wpAjax', array('ajaxUrl' => admin_url('admin-ajax.php')));	
 }
 add_action( 'wp_enqueue_scripts', 'add_ajax_scripts' );
 
-require_once('ajax/acquisition-callback.php');
-
-require_once('ajax/conversion-callback.php');
+require_once('ajax/ajax-callback.php');
