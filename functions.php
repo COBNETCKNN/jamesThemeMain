@@ -13,8 +13,22 @@ function portfolioTheme_files() {
     wp_localize_script('ajaxJS', 'wpAjax',
     array('ajaxUrl' => admin_url('admin-ajax.php'))
   );
+     
+  wp_register_script('bootstrapjs', 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js', array('jquery'), false, true);
+  wp_enqueue_script('bootstrapjs');
+
+  wp_register_script('custom-script', get_stylesheet_directory_uri(). '/js/custom.js', array('jquery'), false, true);
+  // Localize the script with new data
+  $script_data_array = array(
+      'ajaxurl' => admin_url( 'admin-ajax.php' ),
+      'security' => wp_create_nonce( 'view_post' ),
+  );
+  wp_localize_script( 'custom-script', 'blog', $script_data_array );
+  wp_enqueue_script('custom-script');
 }
 add_action( 'wp_enqueue_scripts', 'portfolioTheme_files' );
+
+
 
 // Registrating Custom Post Types
 require_once('partials/post_types.php');
@@ -45,8 +59,14 @@ add_image_size('social-media-icons', 35, 35, true);
 // Enqueue Ajax scripts
 function add_ajax_scripts() {
   wp_enqueue_script( 'ajax_term', get_stylesheet_directory_uri() . '/ajax/filter-ajax.js', array('jquery'), NULL, true );
+  wp_enqueue_script('ajax_modal', get_stylesheet_directory_uri() . '/ajax/modal-ajax.js', array('jquery'), NULL, true);
 	wp_localize_script( 'ajax_term', 'wpAjax', array('ajaxUrl' => admin_url('admin-ajax.php')));	
 }
 add_action( 'wp_enqueue_scripts', 'add_ajax_scripts' );
 
+
+// Ajax callback for category filter
 require_once('ajax/ajax-callback.php');
+
+// Ajax callback for modal 
+require_once('ajax/modal-ajax.php');

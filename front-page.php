@@ -227,7 +227,32 @@
                                                 }
                                             echo $output;
                                         ?>
-
+                                        <!-- Reading time -->
+                                        <div class="blogPost_readingTime__wrapper">
+                                            <?php 
+                                            $readingTime = get_field('reading_time');
+                                            ?>
+                                            <div class="blogPost_readingTime text-white text-avenir absolute bottom-4 left-4">
+                                                <i class="fa-regular fa-lightbulb"></i>
+                                                <span><?php echo $readingTime; ?></span>
+                                            </div>
+                                        </div>
+                                        <!-- Readm more Button -->
+                                        <button data-id="<?php the_ID(); ?>" class="view-post"><?php _e('View More'); ?></button>
+                                        </div>
+                                        <!-- Modal -->
+                                        <div class="modal" id="postModal">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="postModalLabel">testing</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                                            <i class="text-black fa-solid fa-x"></i>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body"></div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
