@@ -585,6 +585,9 @@ video {
 .w-full {
   width: 100%;
 }
+.w-8\/12 {
+  width: 66.666667%;
+}
 .cursor-pointer {
   cursor: pointer;
 }

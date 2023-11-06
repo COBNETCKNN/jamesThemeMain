@@ -76,3 +76,18 @@ function filter_projects() {
 add_action('wp_ajax_filter_projects', 'filter_projects');
 add_action('wp_ajax_nopriv_filter_projects', 'filter_projects');
 
+// Do NOT include the opening PHP tag
+
+// =============================================================
+// ENQUEUE AJAX SCRIPTS
+// =============================================================
+function add_ajax_scripts() {
+  wp_enqueue_script( 'ajax_term', get_stylesheet_directory_uri() . '/ajax/acquisition-ajax.js', array('jquery'), NULL, true );
+  wp_enqueue_script( 'ajax_term', get_stylesheet_directory_uri() . '/ajax/conversion-ajax.js', array('jquery'), NULL, true );
+	wp_localize_script( 'ajax_term', 'wpAjax', array('ajaxUrl' => admin_url('admin-ajax.php')));	
+}
+add_action( 'wp_enqueue_scripts', 'add_ajax_scripts' );
+
+require_once('ajax/acquisition-callback.php');
+
+require_once('ajax/conversion-callback.php');

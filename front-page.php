@@ -23,64 +23,79 @@
             <!-- Acquisition Custom Taxonomy Sidebar -->
             <div class="customTaxonomyWrapper my-6">
                 <h3 class="sidebarTitle p-1.5 w-fit bg-black text-white font-bold font-avenir uppercase text-sm italic">Acquisition</h3>
-                <div class="customTaxonomyTerms flex grid grid-cols-2 w-10/12 border-solid border-2 border-gray-100 rounded-lg shadow-md font-avenir">
-                <?php 
-                    $terms = get_terms( 'acquisition' );
-                    if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
-                        $i = 0;
-                        foreach ( $terms as $term ) { ?>
+                <div class="customTaxonomyTerms w-10/12 border-solid border-2 border-gray-100 rounded-lg shadow-md font-avenir">
+                    <ul class="categories-filter flex grid grid-cols-2" name="categoryfilter">
+                        <?php
+                        if( $terms = get_terms( array( 
+                            'taxonomy' => 'acquisition' ) ) ) : 
 
-                            <div class="py-2">
-                            <a class="cat-list_item moreBackgroundItem-<?php echo $i; ?> w-fit block py-1 px-4 font-light text-md shadow-md"  data-slug="<?php echo $term->slug; ?>" href="#!"><?php echo $term->name; ?></a>
-                            </div>
-
-                            <?php 
-                            $i++;
-                        }
-                    }
-                ?>
+                            $i = 0;
+                            foreach ( $terms as $term ) :
+                            
+                            ?>
+                            <li class="py-2">
+                                <a type="button" data-category="<?= $term->term_id; ?>" 
+                                    data-posttype="<?=$term->taxonomy?>" 
+                                        data-taxonomy="<?=$term->taxonomy?>" class="js-filter-item w-fit block py-1 px-4 font-light text-md shadow-md acquisitionBackgroundItem-<?php echo $i; ?>" href="<?= $term->term_id; ?>" >
+                                    <?= $term->name; ?>
+                            </a>
+                            </li>
+                            <?php $i++; ?>
+                        <?php endforeach; endif; ?>
+                        
+                    </ul>
                 </div>
             </div>
             <!-- Conversion Custom Taxonomy Sidebar -->
             <div class="customTaxonomyWrapper my-6">
                 <h3 class="sidebarTitle p-1.5 w-fit bg-black text-white font-bold font-avenir uppercase text-sm italic">Conversion</h3>
-                <div class="customTaxonomyTerms w-10/12 border-solid border-2 border-gray-100 rounded-lg shadow-md font-avenir">
-                <?php 
-                    $terms = get_terms( 'conversion' );
-                    if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
-                        $i = 0;
-                        foreach ( $terms as $term ) { ?>
+                <div class="customTaxonomyTerms w-8/12 border-solid border-2 border-gray-100 rounded-lg shadow-md font-avenir">
+                    <ul class="categories-filter" name="categoryfilter">
+                        <?php
+                        if( $terms = get_terms( array( 
+                            'taxonomy' => 'conversion' ) ) ) : 
 
-                            <div class="py-2">
-                            <a class="cat-list_item moreBackgroundItem-<?php echo $i; ?> w-fit block py-1 px-4 font-light text-md shadow-md"  data-slug="<?php echo $term->slug; ?>" href="#!"><?php echo $term->name; ?></a>
-                            </div>
-
-                            <?php 
-                            $i++;
-                        }
-                    }
-                ?>
+                            $i = 0;
+                            foreach ( $terms as $term ) :
+                            
+                            ?>
+                            <li class="py-2">
+                                <a type="button" data-category="<?= $term->term_id; ?>" 
+                                    data-posttype="<?=$term->taxonomy?>" 
+                                        data-taxonomy="<?=$term->taxonomy?>" class="js-filter-item w-fit block py-1 px-4 font-light text-md shadow-md conversionBackgroundItem-<?php echo $i; ?>" href="<?= $term->term_id; ?>" >
+                                    <?= $term->name; ?>
+                            </a>
+                            </li>
+                            <?php $i++; ?>
+                        <?php endforeach; endif; ?>
+                        
+                    </ul>
                 </div>
             </div>
             <!-- More Custom Taxonomy Sidebar -->
             <div class="customTaxonomyWrapper my-6">
                 <h3 class="sidebarTitle p-1.5 w-fit bg-black text-white font-bold font-avenir uppercase text-sm italic">More</h3>
-                <div class="customTaxonomyTerms flex grid grid-cols-2 w-10/12 border-solid border-2 border-gray-100 rounded-lg shadow-md font-avenir">
-                <?php 
-                    $terms = get_terms( 'more' );
-                    if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
-                        $i = 0;
-                        foreach ( $terms as $term ) { ?>
+                <div class="customTaxonomyTerms w-10/12 border-solid border-2 border-gray-100 rounded-lg shadow-md font-avenir">
+                    <ul class="categories-filter flex grid grid-cols-2" name="categoryfilter">
+                        <?php
+                        if( $terms = get_terms( array( 
+                            'taxonomy' => 'more' ) ) ) : 
 
-                            <div class="py-2">
-                            <a class="cat-list_item moreBackgroundItem-<?php echo $i; ?> w-fit block py-1 px-4 font-light text-md shadow-md"  data-slug="<?php echo $term->slug; ?>" href="#!"><?php echo $term->name; ?></a>
-                            </div>
-
-                            <?php 
-                            $i++;
-                        }
-                    }
-                ?>
+                            $i = 0;
+                            foreach ( $terms as $term ) :
+                            
+                            ?>
+                            <li class="py-2">
+                                <a type="button" data-category="<?= $term->term_id; ?>" 
+                                    data-posttype="<?=$term->taxonomy?>" 
+                                        data-taxonomy="<?=$term->taxonomy?>" class="js-filter-item w-fit block py-1 px-4 font-light text-md shadow-md moreBackgroundItem-<?php echo $i; ?>" href="<?= $term->term_id; ?>" >
+                                    <?= $term->name; ?>
+                            </a>
+                            </li>
+                            <?php $i++; ?>
+                        <?php endforeach; endif; ?>
+                        
+                    </ul>
                 </div>
              </div>
             <!-- Newsletter Sidebar -->
@@ -158,70 +173,69 @@
                 </div>
             </div>
             <!-- Blog posts -->
-            <div class="project-tiles">
+            <div id="response">
+                <div class="blogPostsWrapper mt-16">
+                    <div class="grid grid-cols-3 gap-4 mr-5">
+                            <?php 
 
-            </div>
-            <div class="blogPostsWrapper mt-16">
-                <div class="grid grid-cols-3 gap-4 mr-5">
-                        <?php 
+                            //query to load selected featured post on front page
+                            $args = array(
+                                'post_type' => 'post',
+                                'posts_per_page' => 12,
+                            );
 
-                        //query to load selected featured post on front page
-                        $args = array(
-                            'post_type' => 'post',
-                            'posts_per_page' => 12,
-                        );
+                            $blogPostQuery = new WP_Query($args);
 
-                        $blogPostQuery = new WP_Query($args);
+                            while($blogPostQuery->have_posts()){
+                                $blogPostQuery->the_post(); ?>
 
-                        while($blogPostQuery->have_posts()){
-                            $blogPostQuery->the_post(); ?>
+                                <div class="blogCardBlackOverlay">
+                                    <div class="col-span-1 shadow-2xl">
+                                    <?php $thumb = get_the_post_thumbnail_url(); ?>
+                                        <div class="relative blogPostCard rounded-2xl" style="background-image: linear-gradient(rgba(0,47,75,0.5) 0%, rgba(220, 66, 37, 0.3) 130%), url('<?php echo $thumb;?>')">
+                                        <h1 class="blogPostCard_title font-sans text-white font-bold text-start"><?php the_title(); ?></h1>
+                                        <?php
+                                            $taxonomyAcquisiton = 'acquisition';
+                                            $termsAcquisition = get_object_term_cache( $post->ID, $taxonomyAcquisiton );
+                                            $output = '';
+                                            foreach($termsAcquisition as $termAcquisition) {
+                                                if(!empty($output))
+                                                    $output .= ' | ';
+                                                    $output .= '<span class="blogCard_taxonomy__item py-1 px-4 text-sm rounded-2xl absolute bottom-4 right-4 font-medium item-'.$termAcquisition->slug.'">'.$termAcquisition->name.'</span>';
+                                                }
+                                            echo $output;
+                                        ?>
+                                        <?php
+                                            $taxonomyConversion = 'conversion';
+                                            $termsConversion = get_object_term_cache( $post->ID, $taxonomyConversion );
+                                            $output = '';
+                                            foreach($termsConversion as $termConversion) {
+                                                if(!empty($output))
+                                                    $output .= ' | ';
+                                                    $output .= '<span class="blogCard_taxonomy__item py-1 px-4 text-sm rounded-2xl absolute bottom-4 right-4 font-medium item-'.$termConversion->slug.'">'.$termConversion->name.'</span>';
+                                                }
+                                            echo $output;
+                                        ?>
+                                        <?php
+                                            $taxonomyMore = 'more';
+                                            $termsMore = get_object_term_cache( $post->ID, $taxonomyMore);
+                                            $output = '';
+                                            foreach($termsMore as $termMore) {
+                                                if(!empty($output))
+                                                    $output .= ' | ';
+                                                    $output .= '<span class="blogCard_taxonomy__item py-1 px-4 text-sm rounded-2xl absolute bottom-4 right-4 font-medium item-'.$termMore->slug.'">'.$termMore->name.'</span>';
+                                                }
+                                            echo $output;
+                                        ?>
 
-                            <div class="blogCardBlackOverlay">
-                                <div class="col-span-1 shadow-2xl">
-                                <?php $thumb = get_the_post_thumbnail_url(); ?>
-                                    <div class="relative blogPostCard rounded-2xl" style="background-image: linear-gradient(rgba(0,47,75,0.5) 0%, rgba(220, 66, 37, 0.3) 130%), url('<?php echo $thumb;?>')">
-                                    <h1 class="blogPostCard_title font-sans text-white font-bold text-start"><?php the_title(); ?></h1>
-                                    <?php
-                                        $taxonomyAcquisiton = 'acquisition';
-                                        $termsAcquisition = get_object_term_cache( $post->ID, $taxonomyAcquisiton );
-                                        $output = '';
-                                        foreach($termsAcquisition as $termAcquisition) {
-                                            if(!empty($output))
-                                                $output .= ' | ';
-                                                $output .= '<span class="blogCard_taxonomy__item py-1 px-4 text-sm rounded-2xl absolute bottom-4 right-4 font-medium item-'.$termAcquisition->slug.'">'.$termAcquisition->name.'</span>';
-                                            }
-                                        echo $output;
-                                    ?>
-                                    <?php
-                                        $taxonomyConversion = 'conversion';
-                                        $termsConversion = get_object_term_cache( $post->ID, $taxonomyConversion );
-                                        $output = '';
-                                        foreach($termsConversion as $termConversion) {
-                                            if(!empty($output))
-                                                $output .= ' | ';
-                                                $output .= '<span class="blogCard_taxonomy__item py-1 px-4 text-sm rounded-2xl absolute bottom-4 right-4 font-medium item-'.$termConversion->slug.'">'.$termConversion->name.'</span>';
-                                            }
-                                        echo $output;
-                                    ?>
-                                    <?php
-                                        $taxonomyMore = 'more';
-                                        $termsMore = get_object_term_cache( $post->ID, $taxonomyMore);
-                                        $output = '';
-                                        foreach($termsMore as $termMore) {
-                                            if(!empty($output))
-                                                $output .= ' | ';
-                                                $output .= '<span class="blogCard_taxonomy__item py-1 px-4 text-sm rounded-2xl absolute bottom-4 right-4 font-medium item-'.$termMore->slug.'">'.$termMore->name.'</span>';
-                                            }
-                                        echo $output;
-                                    ?>
-
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        <?php
-                        }
-                        ?>
+                            <?php
+                            }
+                            ?>
 
+                    </div>
                 </div>
             </div>
         </div>
