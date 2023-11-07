@@ -5,104 +5,105 @@
     <div class="grid grid-cols-6 gap-1 h-max pb-10">
         <!-- LEFT SIDE -->
         <div class="col-span-1">
-            <!-- Logo -->
-            <div class="logoWrapper">
-                <a href="<?php echo site_url(); ?>">
-                    <?php 
-                        $custom_logo_id = get_theme_mod( 'custom_logo' );
-                        $logo = wp_get_attachment_image_src( $custom_logo_id , 'logo-size' );
-                        if ( has_custom_logo() ) {
-                            echo '<img class="logo" src="' . esc_url( $logo[0] ) . '" alt="' . get_bloginfo( 'name' ) . '">';
-                        } else {
-                            echo '<h1>' . get_bloginfo('name') . '</h1>';
-                        }
-                    ?>
-                </a>
-            </div>
-            <!-- Custom Taxonomies -->
-            <!-- Acquisition Custom Taxonomy Sidebar -->
-            <div class="customTaxonomyWrapper my-6">
-                <h3 class="sidebarTitle p-1.5 w-fit bg-black text-white font-bold font-avenir uppercase text-sm italic">Acquisition</h3>
-                <div class="customTaxonomyTerms w-10/12 border-solid border-2 border-gray-100 rounded-lg shadow-md font-avenir">
-                    <ul class="categories-filter flex grid grid-cols-2" name="categoryfilter">
-                        <?php
-                        if( $terms = get_terms( array( 
-                            'taxonomy' => 'acquisition' ) ) ) : 
+            <div class="leftSidebar">
+                <!-- Logo -->
+                <div class="logoWrapper">
+                    <a href="<?php echo site_url(); ?>">
+                        <?php 
+                            $custom_logo_id = get_theme_mod( 'custom_logo' );
+                            $logo = wp_get_attachment_image_src( $custom_logo_id , 'logo-size' );
+                            if ( has_custom_logo() ) {
+                                echo '<img class="logo" src="' . esc_url( $logo[0] ) . '" alt="' . get_bloginfo( 'name' ) . '">';
+                            } else {
+                                echo '<h1>' . get_bloginfo('name') . '</h1>';
+                            }
+                        ?>
+                    </a>
+                </div>
+                <!-- Custom Taxonomies -->
+                <!-- Acquisition Custom Taxonomy Sidebar -->
+                <div class="customTaxonomyWrapper my-6">
+                    <h3 class="sidebarTitle p-1.5 w-fit bg-black text-white font-bold font-avenir uppercase text-sm italic">Acquisition</h3>
+                    <div class="customTaxonomyTerms w-10/12 border-solid border-2 border-gray-100 rounded-lg shadow-md font-avenir">
+                        <ul class="categories-filter flex grid grid-cols-2" name="categoryfilter">
+                            <?php
+                            if( $terms = get_terms( array( 
+                                'taxonomy' => 'acquisition' ) ) ) : 
 
-                            $i = 0;
-                            foreach ( $terms as $term ) :
+                                $i = 0;
+                                foreach ( $terms as $term ) :
+                                
+                                ?>
+                                <li class="py-2">
+                                    <a type="button"  data-category="<?= $term->term_id; ?>" 
+                                        data-posttype="<?= $term->taxonomy?>" 
+                                            data-taxonomy="<?= $term->taxonomy?>"  data-slug="<?= $term->slug; ?>" class="js-filter-item w-fit block py-1 px-4 font-light text-md shadow-md acquisitionBackgroundItem-<?php echo $i; ?>" href="<?= $term->term_id; ?>" >
+                                        <?= $term->name; ?>
+                                </a>
+                                </li>
+                                <?php $i++; ?>
+                            <?php endforeach; endif; ?>
                             
-                            ?>
-                            <li class="py-2">
-                                <a type="button"  data-category="<?= $term->term_id; ?>" 
-                                    data-posttype="<?= $term->taxonomy?>" 
-                                        data-taxonomy="<?= $term->taxonomy?>"  data-slug="<?= $term->slug; ?>" class="js-filter-item w-fit block py-1 px-4 font-light text-md shadow-md acquisitionBackgroundItem-<?php echo $i; ?>" href="<?= $term->term_id; ?>" >
-                                    <?= $term->name; ?>
-                            </a>
-                            </li>
-                            <?php $i++; ?>
-                        <?php endforeach; endif; ?>
-                        
-                    </ul>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Conversion Custom Taxonomy Sidebar -->
+                <div class="customTaxonomyWrapper my-6">
+                    <h3 class="sidebarTitle p-1.5 w-fit bg-black text-white font-bold font-avenir uppercase text-sm italic">Conversion</h3>
+                    <div class="customTaxonomyTerms w-8/12 border-solid border-2 border-gray-100 rounded-lg shadow-md font-avenir">
+                        <ul class="categories-filter" name="categoryfilter">
+                            <?php
+                            if( $terms = get_terms( array( 
+                                'taxonomy' => 'conversion' ) ) ) : 
+
+                                $i = 0;
+                                foreach ( $terms as $term ) :
+                                
+                                ?>
+                                <li class="py-2">
+                                    <a type="button" data-category="<?= $term->term_id; ?>" 
+                                        data-posttype="<?=$term->taxonomy?>" 
+                                            data-taxonomy="<?=$term->taxonomy?>" data-slug="<?= $term->slug; ?>" class="js-filter-item w-fit block py-1 px-4 font-light text-md shadow-md conversionBackgroundItem-<?php echo $i; ?>" href="<?= $term->term_id; ?>" >
+                                        <?= $term->name; ?>
+                                </a>
+                                </li>
+                                <?php $i++; ?>
+                            <?php endforeach; endif; ?>
+                            
+                        </ul>
+                    </div>
+                </div>
+                <!-- More Custom Taxonomy Sidebar -->
+                <div class="customTaxonomyWrapper my-6">
+                    <h3 class="sidebarTitle p-1.5 w-fit bg-black text-white font-bold font-avenir uppercase text-sm italic">More</h3>
+                    <div class="customTaxonomyTerms w-10/12 border-solid border-2 border-gray-100 rounded-lg shadow-md font-avenir">
+                        <ul class="categories-filter flex grid grid-cols-2" name="categoryfilter">
+                            <?php
+                            if( $terms = get_terms( array( 
+                                'taxonomy' => 'more' ) ) ) : 
+
+                                $i = 0;
+                                foreach ( $terms as $term ) :
+                                
+                                ?>
+                                <li class="py-2">
+                                    <a type="button" data-category="<?= $term->term_id; ?>" 
+                                        data-posttype="<?=$term->taxonomy?>" 
+                                            data-taxonomy="<?=$term->taxonomy?>" data-slug="<?= $term->slug; ?>" class="js-filter-item w-fit block py-1 px-4 font-light text-md shadow-md moreBackgroundItem-<?php echo $i; ?>" href="<?= $term->term_id; ?>" >
+                                        <?= $term->name; ?>
+                                </a>
+                                </li>
+                                <?php $i++; ?>
+                            <?php endforeach; endif; ?>
+                            
+                        </ul>
+                    </div>
+                </div>
+                <!-- Newsletter Sidebar -->
+                <div class="customTaxonomyWrapper my-6">
+                    <h3 class="sidebarTitle p-1.5 w-fit bg-black text-white font-bold font-avenir uppercase text-sm italic">Newsletter</h3>
                 </div>
             </div>
-            <!-- Conversion Custom Taxonomy Sidebar -->
-            <div class="customTaxonomyWrapper my-6">
-                <h3 class="sidebarTitle p-1.5 w-fit bg-black text-white font-bold font-avenir uppercase text-sm italic">Conversion</h3>
-                <div class="customTaxonomyTerms w-8/12 border-solid border-2 border-gray-100 rounded-lg shadow-md font-avenir">
-                    <ul class="categories-filter" name="categoryfilter">
-                        <?php
-                        if( $terms = get_terms( array( 
-                            'taxonomy' => 'conversion' ) ) ) : 
-
-                            $i = 0;
-                            foreach ( $terms as $term ) :
-                            
-                            ?>
-                            <li class="py-2">
-                                <a type="button" data-category="<?= $term->term_id; ?>" 
-                                    data-posttype="<?=$term->taxonomy?>" 
-                                        data-taxonomy="<?=$term->taxonomy?>" data-slug="<?= $term->slug; ?>" class="js-filter-item w-fit block py-1 px-4 font-light text-md shadow-md conversionBackgroundItem-<?php echo $i; ?>" href="<?= $term->term_id; ?>" >
-                                    <?= $term->name; ?>
-                            </a>
-                            </li>
-                            <?php $i++; ?>
-                        <?php endforeach; endif; ?>
-                        
-                    </ul>
-                </div>
-            </div>
-            <!-- More Custom Taxonomy Sidebar -->
-            <div class="customTaxonomyWrapper my-6">
-                <h3 class="sidebarTitle p-1.5 w-fit bg-black text-white font-bold font-avenir uppercase text-sm italic">More</h3>
-                <div class="customTaxonomyTerms w-10/12 border-solid border-2 border-gray-100 rounded-lg shadow-md font-avenir">
-                    <ul class="categories-filter flex grid grid-cols-2" name="categoryfilter">
-                        <?php
-                        if( $terms = get_terms( array( 
-                            'taxonomy' => 'more' ) ) ) : 
-
-                            $i = 0;
-                            foreach ( $terms as $term ) :
-                            
-                            ?>
-                            <li class="py-2">
-                                <a type="button" data-category="<?= $term->term_id; ?>" 
-                                    data-posttype="<?=$term->taxonomy?>" 
-                                        data-taxonomy="<?=$term->taxonomy?>" data-slug="<?= $term->slug; ?>" class="js-filter-item w-fit block py-1 px-4 font-light text-md shadow-md moreBackgroundItem-<?php echo $i; ?>" href="<?= $term->term_id; ?>" >
-                                    <?= $term->name; ?>
-                            </a>
-                            </li>
-                            <?php $i++; ?>
-                        <?php endforeach; endif; ?>
-                        
-                    </ul>
-                </div>
-             </div>
-            <!-- Newsletter Sidebar -->
-            <div class="customTaxonomyWrapper my-6">
-                <h3 class="sidebarTitle p-1.5 w-fit bg-black text-white font-bold font-avenir uppercase text-sm italic">Newsletter</h3>
-             </div>
-
         </div>
         <!-- RIGHT SIDE -->
         <div class="col-span-5">
@@ -133,7 +134,6 @@
                     </div>
                     <div class="socialMediaIcons flex justify-center items-center mr-3">
                         <?php 
-
                         $args = array(
                             'page_id' => 44,
                         );
@@ -173,15 +173,16 @@
                 </div>
             </div>
             <!-- Blog posts -->
-            <div id="response">
+            <div id="response"  class="ajax-posts">
                 <div class="blogPostsWrapper mt-10">
                     <div class="grid grid-cols-3 gap-4 mr-5">
                             <?php 
 
                             //query to load selected featured post on front page
+                            $postsPerPage = 12;
                             $args = array(
                                 'post_type' => 'post',
-                                'posts_per_page' => 12,
+                                'posts_per_page' => $postsPerPage,
                             );
 
                             $blogPostQuery = new WP_Query($args);
@@ -226,6 +227,7 @@
                     </div>
                 </div>
             </div>
+            <div id=""></div>
         </div>
     </div>
     <div id="modal" class="modal">

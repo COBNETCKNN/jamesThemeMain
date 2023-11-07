@@ -1,6 +1,6 @@
 jQuery(document).ready(function($) {
 
-    $('.view-post').click(function(e) {
+    $(document).on('click', '.view-post', function(e){
         e.preventDefault();
 
         var postID = $(this).data('postid');

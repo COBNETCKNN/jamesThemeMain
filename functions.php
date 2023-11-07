@@ -61,12 +61,24 @@ function add_ajax_scripts() {
   wp_enqueue_script( 'ajax_term', get_stylesheet_directory_uri() . '/ajax/filter-ajax.js', array('jquery'), NULL, true );
   wp_enqueue_script('ajax_modal', get_stylesheet_directory_uri() . '/ajax/modal-ajax.js', array('jquery'), NULL, true);
 	wp_localize_script( 'ajax_term', 'wpAjax', array('ajaxUrl' => admin_url('admin-ajax.php')));	
+
+  wp_register_script( 'scroll-to-load', get_template_directory_uri() . '/ajax/ajax-scroll-to-load.js');
+  wp_enqueue_script( 'scroll-to-load' );
+
+  wp_localize_script( 'scroll-to-load', 'ajax_posts', array(
+      'ajaxurl' => admin_url( 'admin-ajax.php' ),
+      'noposts' => __('No older posts found', 'twentyfifteen'),
+  ));
 }
 add_action( 'wp_enqueue_scripts', 'add_ajax_scripts' );
+
 
 
 // Ajax callback for category filter
 require_once('ajax/ajax-callback.php');
 
-// Ajax callback for moda pop up
+// Ajax callback for modal pop up
 require_once('ajax/modal-callback.php');
+
+// Ajax callback for loading posts on scroll
+require_once('ajax/ajax-scroll-to-load.php');

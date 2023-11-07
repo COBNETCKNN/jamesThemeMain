@@ -11,8 +11,15 @@
 
 // custom CSS
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: black;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
 }
 
 .logoWrapper {
@@ -276,5 +283,10 @@ body {
     width: 100%;
     position: absolute;
     top: 0;
+}
+
+.leftSidebar {
+    position: sticky;
+    top: 1px;
 }
 
