@@ -128,31 +128,31 @@ body {
 // Blog Post Taxonomy Items
 
 .item-ads {
-    background-color: #C2C8FF;
+    background-color: #FFB3B3;
 }
 
 .item-content {
-    background-color: #FFFAB1;
-}
-
-.item-sales {
-    background-color: #F7B7EC;
-}
-
-.item-seo {
     background-color: #BBF3DD;
 }
 
-.item-social {
-    background-color: #818cf8;
-}
-
-.item-copywriting {
+.item-sales {
     background-color: #C2C8FF;
 }
 
+.item-seo {
+    background-color: #F7B7EC;
+}
+
+.item-social {
+    background-color: #FFF9A3;
+}
+
+.item-copywriting {
+    background-color: #BDF1FF;
+}
+
 .item-landing-page {
-    background-color: #FFFAB1;
+    background-color: #FFB3B3;
 }
 
 .item-brand {
@@ -191,13 +191,14 @@ body {
     position: fixed;
     z-index: 1060;
     display: none;
-    width: 100%;
-    height: 100%;
+    width: 800px;
     overflow-x: hidden;
     overflow-y: auto;
     outline: 0;
-    top: 20%;
-    left: 37%;
+    position: fixed;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .modal.show .modal-dialog {

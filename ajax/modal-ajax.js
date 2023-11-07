@@ -1,30 +1,36 @@
-jQuery(function($) {
+jQuery(document).ready(function($) {
 
-    // Get the current URL
-    var currentUrl = window.location.href;
+    $('.view-post').click(function(e) {
+        e.preventDefault();
 
-    $('body').on('click', '.view-post', function() {
-        var data = {
-            'action': 'load_post_by_ajax',
-            'id': $(this).data('id'),
-            'security': blog.security
-        };
- 
-        $.post(blog.ajaxurl, data, function(response) {
-            response = JSON.parse(response);
-            $('#postModal h5#postModalLabel').text(response.title);
-            $('#postModal .modal-body').html(response.content);
-            var postSlug = response.post_slug;
-            var customTaxonomy = response.custom_taxonomy;
- 
-            var postModal = new bootstrap.Modal(document.getElementById('postModal'));
-            postModal.show();
+        var postID = $(this).data('postid');
+        var postSlug = $(this).data('slug');
 
-            window.history.pushState(null, null, postSlug);
+        // changing URL based on the post slug
+        window.history.pushState(null, null, postSlug);
 
+        $.ajax({
+            url: wpAjax.ajaxUrl, // WordPress AJAX endpoint
+            type: 'post',
+            data: {
+                action: 'get_post_content',
+                post_id: postID,
+            },
+            success: function(response) {
+                $('#modal-content-placeholder').html(response);
+                $('#modal').show();
+            }
         });
     });
+
+    $('.homeInner').click(function() {
+        $('#modal').hide();
+    });
+
+    $(window).click(function(event) {
+        if (event.target == $('#modal')[0]) {
+            $('#modal').hide();
+        }
+    });
+
 });
-
-
-

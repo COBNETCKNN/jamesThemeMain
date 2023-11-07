@@ -34,9 +34,9 @@
                             
                             ?>
                             <li class="py-2">
-                                <a type="button" data-category="<?= $term->term_id; ?>" 
-                                    data-posttype="<?=$term->taxonomy?>" 
-                                        data-taxonomy="<?=$term->taxonomy?>" class="js-filter-item w-fit block py-1 px-4 font-light text-md shadow-md acquisitionBackgroundItem-<?php echo $i; ?>" href="<?= $term->term_id; ?>" >
+                                <a type="button"  data-category="<?= $term->term_id; ?>" 
+                                    data-posttype="<?= $term->taxonomy?>" 
+                                        data-taxonomy="<?= $term->taxonomy?>"  data-slug="<?= $term->slug; ?>" class="js-filter-item w-fit block py-1 px-4 font-light text-md shadow-md acquisitionBackgroundItem-<?php echo $i; ?>" href="<?= $term->term_id; ?>" >
                                     <?= $term->name; ?>
                             </a>
                             </li>
@@ -62,7 +62,7 @@
                             <li class="py-2">
                                 <a type="button" data-category="<?= $term->term_id; ?>" 
                                     data-posttype="<?=$term->taxonomy?>" 
-                                        data-taxonomy="<?=$term->taxonomy?>" class="js-filter-item w-fit block py-1 px-4 font-light text-md shadow-md conversionBackgroundItem-<?php echo $i; ?>" href="<?= $term->term_id; ?>" >
+                                        data-taxonomy="<?=$term->taxonomy?>" data-slug="<?= $term->slug; ?>" class="js-filter-item w-fit block py-1 px-4 font-light text-md shadow-md conversionBackgroundItem-<?php echo $i; ?>" href="<?= $term->term_id; ?>" >
                                     <?= $term->name; ?>
                             </a>
                             </li>
@@ -88,7 +88,7 @@
                             <li class="py-2">
                                 <a type="button" data-category="<?= $term->term_id; ?>" 
                                     data-posttype="<?=$term->taxonomy?>" 
-                                        data-taxonomy="<?=$term->taxonomy?>" class="js-filter-item w-fit block py-1 px-4 font-light text-md shadow-md moreBackgroundItem-<?php echo $i; ?>" href="<?= $term->term_id; ?>" >
+                                        data-taxonomy="<?=$term->taxonomy?>" data-slug="<?= $term->slug; ?>" class="js-filter-item w-fit block py-1 px-4 font-light text-md shadow-md moreBackgroundItem-<?php echo $i; ?>" href="<?= $term->term_id; ?>" >
                                     <?= $term->name; ?>
                             </a>
                             </li>
@@ -192,7 +192,7 @@
                                 <div class="blogCardBlackOverlay">
                                     <div class="col-span-1 shadow-2xl">
                                     <?php $thumb = get_the_post_thumbnail_url(); ?>
-                                        <div class="relative blogPostCard rounded-2xl" style="background-image: linear-gradient(rgba(0,47,75,0.5) 0%, rgba(220, 66, 37, 0.3) 130%), url('<?php echo $thumb;?>')">
+                                        <div class="relative blogPostCard rounded-2xl" style="background-image: linear-gradient(rgba(66,32,6,0.7) 0%, rgb(134, 191, 255,0.3) 130%), url('<?php echo $thumb;?>')">
                                         <h1 class="blogPostCard_title font-sans text-white font-bold text-start"><?php the_title(); ?></h1>
                                         <!-- Gettng custom taxonomies associate with teh post -->
                                         <?php
@@ -215,22 +215,7 @@
                                                 <span><?php echo $readingTime; ?></span>
                                             </div>
                                         </div>
-                                        <!-- Readm more Button -->
-                                        <button data-id="<?php the_ID(); ?>" class="view-post"></button>
-                                        </div>
-                                        <!-- Modal -->
-                                        <div class="modal" id="postModal">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="postModalLabel">testing</h5>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                                                            <i class="text-black fa-solid fa-x"></i>
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body"></div>
-                                                </div>
-                                            </div>
+                                        <a href="#" type="button" class="view-post" data-postid="<?php the_ID(); ?>" data-slug="<?php echo get_post_field('post_name', $post_id); ?>"></a>
                                         </div>
                                     </div>
                                 </div>
@@ -243,9 +228,11 @@
             </div>
         </div>
     </div>
+    <div id="modal" class="modal">
+        <div class="p-5 modal-content">
+            <div id="modal-content-placeholder"></div>
+        </div>
+    </div>
 </div>
-
-
-
 
 <?php get_footer(); ?>

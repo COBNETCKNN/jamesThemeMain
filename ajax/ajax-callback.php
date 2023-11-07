@@ -42,9 +42,7 @@ function filter_ajax_term(){
         <div class="grid grid-cols-3 gap-4 mr-5">
 
             <?php if ( $the_query->have_posts() ) : 
-                while ( $the_query->have_posts() ) : $the_query->the_post(); 
-                
-                $category = get_the_category(); ?>
+                while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
 
 				<?php get_template_part( 'partials/blog', 'card' ); ?>
         
@@ -55,3 +53,5 @@ function filter_ajax_term(){
 
 	die();
 }
+
+?>

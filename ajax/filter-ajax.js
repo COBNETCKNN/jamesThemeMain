@@ -5,6 +5,10 @@
             (event).preventDefault();
 
             var category = $(this).data('category');
+            var categorySlug = $(this).data('slug');
+
+            // changing URL based on the category slug
+            window.history.pushState(null, null, categorySlug);
 
             $.ajax({
                 url: wpAjax.ajaxUrl,
