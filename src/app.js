@@ -11,5 +11,21 @@ jQuery(document).ready(function(jQuery){
         itemSelector: '.grid-item',
         columnWidth: 200
       });
+
+      jQuery('.modal_wrapper').click(function() {
+        jQuery('#modal').removeClass('modal');
+        jQuery('body').css('overflow', 'auto');
+        jQuery('.modal_wrapper').addClass('modal_wrapper__hide');
+    });
+
+    jQuery(document).click(function(event) {
+        var url = '<?php echo home_url(); ?>';
+        //if you click on anything except the modal itself or the "open modal" link, close the modal
+        if (!jQuery(event.target).closest(".singleModal").length) {
+          jQuery("body").find(".singleModal").removeClass("visible");
+          console.log(window.location.href);
+        }
+    });
+    
     
 });

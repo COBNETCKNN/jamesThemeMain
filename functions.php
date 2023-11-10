@@ -4,6 +4,9 @@ function portfolioTheme_files() {
     //enqueue CSS
     wp_enqueue_style('mainCSS', get_template_directory_uri() . '/css/main.css', array(), '1.1');
     wp_enqueue_style('fontAwesomeCSS', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css');
+    if(is_single()){
+      wp_enqueue_style('modalCSS', get_template_directory_uri() . '/css/modal.css', array(), '1.1');
+    }
 
     //enqueue JS
     wp_enqueue_script('jquery');

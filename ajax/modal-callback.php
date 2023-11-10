@@ -54,23 +54,9 @@ function get_post_content() {
                 <!-- Content section of modal -->
                 <div class="modal_contentArea__wrapper px-20 py-10">
                     <?php 
-
-                        if( have_rows('blocks_for_modal') ):
-
-                            while ( have_rows('blocks_for_modal') ) : the_row();
-
-                                if( get_row_layout() == 'text_area' ):
-
-                                    get_template_part('partials/block', 'modal-text');
-
-                                endif;
-
-                                    get_template_part('partials/block', 'modal-image');
-
-                            endwhile;
-                        endif;
+                        echo the_content();
                     ?>
-                <div class="modalContent_author">
+                <div class="modalContent_author py-10">
                     <span class="font-avenirLegit font-normal text-lg text-avenir italic">- <?php echo get_the_author(); ?></span>
                 </div>
                 </div>
