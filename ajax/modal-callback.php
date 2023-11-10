@@ -62,14 +62,11 @@ function get_post_content() {
                 </div>
             </div>
             <?php 
-
         }
     } else {
         // No posts found
         echo 'No posts found';
     }
-
-
     wp_die();
 
 }

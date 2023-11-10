@@ -46,6 +46,9 @@ require_once('partials/remove-taxonomies.php');
 // Registration of menus
 require_once('partials/menu-registration.php');
 
+// Loading custom shortcodes
+include('custom-shortcodes.php');
+
 
 
 // Adding theme supports

@@ -21,19 +21,19 @@ jQuery(document).ready(function($) {
             success: function(response) {
                 $('#modal-content-placeholder').html(response);
                 $('#modal').show();
+                $('body').css('overflow', 'hidden');
             }
         });
+
+        jQuery(document).click(function (event) {
+            //if you click on anything except the modal itself or the "open modal" link, close the modal
+            if (!jQuery(event.target).closest("#modal").length) {
+              jQuery("body").find("#modal").hide();
+              $('body').css('overflow', 'auto');
+            }
+          });
     });
 
-    $('.homeInner').click(function() {
-        $('#modal').hide();
-        $('body').css('overflow', 'auto');
-    });
 
-    $(window).click(function(event) {
-        if (event.target == $('#modal')[0]) {
-            $('#modal').hide();
-        }
-    });
 
 });

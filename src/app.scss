@@ -494,3 +494,12 @@ body {
     overflow-y: auto;
     z-index: 5;
   }
+
+  .newsletterImage_wrapper {
+    img {
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+
+    }
+  }
