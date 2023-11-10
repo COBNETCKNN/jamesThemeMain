@@ -15,7 +15,8 @@ function james_theme_post_types() {
         'menu_icon' => 'dashicons-edit-large',
         'rewrite' => array('slug' => 'inspirations'),
         'has_archive' => true,
-        'supports' => array('title', 'excerpt'),
+        'supports' => array('editor', 'thumbnail', 'title'),
+        'taxonomies' => array( 'category' ),
     ));
 }
 add_action('init', 'james_theme_post_types');

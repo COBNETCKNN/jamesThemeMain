@@ -5,9 +5,13 @@
 
 // importing local fonts
 @font-face {
-    font-family: AvenirNextLTPro-Regular;
-    src: url("fonts/Montserrat-Light.ttf") format("opentype");
-  }
+font-family: "avenir";
+src: url("/fonts/AvenirNextLTPro-It.ttf");
+}
+
+body.modal-open {
+    overflow: hidden;
+}
 
 // custom CSS
 
@@ -79,6 +83,50 @@ body {
 
 .acquisitionBackgroundItem-9 {
     background-color: #f9a8d4;
+}
+
+.acquisitionBackgroundItem-10 {
+    background-color: #0ea5e9;
+}
+
+.acquisitionBackgroundItem-11 {
+    background-color: #6366f1;
+}
+
+.acquisitionBackgroundItem-12 {
+    background-color: #a855f7;
+}
+
+.acquisitionBackgroundItem-13 {
+    background-color: #ec4899;
+}
+
+.acquisitionBackgroundItem-14 {
+    background-color: #064e3b;
+}
+
+.acquisitionBackgroundItem-15 {
+    background-color: #713f12;
+}
+
+.acquisitionBackgroundItem-16 {
+    background-color: #dc2626;
+}
+
+.acquisitionBackgroundItem-17 {
+    background-color: #57534e;
+}
+
+.acquisitionBackgroundItem-18 {
+    background-color: #fde047;
+}
+
+.acquisitionBackgroundItem-19 {
+    background-color: #67e8f9;
+}
+
+.acquisitionBackgroundItem-20 {
+    background-color: #f0abfc;
 }
 
 .conversionBackgroundItem-0 {
@@ -203,9 +251,11 @@ body {
     overflow-y: auto;
     outline: 0;
     position: fixed;
-    top: 5%;
+    top: 10%;
     left: 50%;
     transform: translateX(-50%);
+    height: 80%;
+    background-color: white;
 }
 
 .modal.show .modal-dialog {
@@ -235,9 +285,9 @@ body {
     pointer-events: auto;
     background-color: #fff;
     background-clip: padding-box;
-    border: 1px solid rgba(0,0,0,.2);
     border-radius: 0.3rem;
     outline: 0;
+    height: 80%;
 }
 
 .modal-header {
@@ -290,3 +340,98 @@ body {
     top: 1px;
 }
 
+.modalPost_thumbnail__blured {
+    width: 100%;
+    height: 250px;
+    -webkit-filter: blur(1px);
+    -moz-filter: blur(1px);
+    -o-filter: blur(1px);
+    -ms-filter: blur(1px);
+    filter: blur(5px);  position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    background-size: cover;
+}
+
+.modalPost_thumbnail {
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    width: 450px;
+}
+
+.blogPostCard_title__modal {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    top: 40%;
+    width: 450px;
+}
+
+.modalPost_thumbnail__wrapper {
+    height: 250px;
+}
+
+.grid-item {
+    width: 32%;
+    padding: 5px 0;
+
+    img {
+        border-radius: 2rem;
+        border: 3px solid #f7f7f7;
+    }
+}
+
+.imageContent_layer {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(17,24,39, 0.8);
+    color: #fff;
+    visibility: hidden;
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2rem;
+    border: 3px solid #f7f7f7;
+  
+    /* transition effect. not necessary */
+    transition: opacity .2s, visibility .2s;
+  }
+
+  .imageContent:hover .imageContent_layer {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  .imageContent_layer p {
+    transition: .2s;
+    transform: translateY(1em);
+  }
+  
+  .img__wrap:hover .imageContent_layer p {
+    transform: translateY(0);
+  }
+
+  .imageContent_link {
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
+    color: white;
+    padding: 1rem 1rem 0.7rem 0.7rem;
+    border-top-right-radius: 120px;
+    z-index: 3;
+    visibility: hidden;
+  }
+
+  .imageContent:hover .imageContent_link {
+    visibility: visible;
+    opacity: 1;
+    bottom: 2%;
+    left: 2%;
+  }

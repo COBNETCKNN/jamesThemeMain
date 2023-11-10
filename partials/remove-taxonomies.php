@@ -1,15 +1,6 @@
-<?php
+<?php 
 
-function wpsnipp_remove_default_taxonomies(){
-    global $pagenow;
- 
-    register_taxonomy( 'post_tag', array() );
-    register_taxonomy( 'category', array() );
- 
-    $tax = array('post_tag','category');
- 
-    if($pagenow == 'edit-tags.php' && in_array($_GET['taxonomy'],$tax) ){
-    wp_die('Invalid taxonomy');
-    }
+function remove_category_taxonomy() {
+    unregister_taxonomy_for_object_type( 'category', 'post' );
 }
-add_action('init', 'wpsnipp_remove_default_taxonomies');
+add_action( 'init', 'remove_category_taxonomy' );

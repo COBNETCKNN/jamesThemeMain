@@ -12,9 +12,10 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        avenir: 'Montserrat-Light'
+        avenir: ["avenir", "sans-serif"],
       },
-      colors: {
+      colors: { 
+        'avenir': '#030212',
     },
     },
   },

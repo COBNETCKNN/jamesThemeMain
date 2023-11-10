@@ -37,7 +37,7 @@
                                 <li class="py-2">
                                     <a type="button"  data-category="<?= $term->term_id; ?>" 
                                         data-posttype="<?= $term->taxonomy?>" 
-                                            data-taxonomy="<?= $term->taxonomy?>"  data-slug="<?= $term->slug; ?>" class="js-filter-item w-fit block py-1 px-4 font-light text-md shadow-md acquisitionBackgroundItem-<?php echo $i; ?>" href="<?= $term->term_id; ?>" >
+                                            data-taxonomy="<?= $term->taxonomy?>"  data-slug="<?= $term->slug; ?>" class="js-filter-item w-fit block py-1 px-4 font-light text-base shadow-md acquisitionBackgroundItem-<?php echo $i; ?>" href="<?= $term->term_id; ?>" >
                                         <?= $term->name; ?>
                                 </a>
                                 </li>
@@ -63,7 +63,7 @@
                                 <li class="py-2">
                                     <a type="button" data-category="<?= $term->term_id; ?>" 
                                         data-posttype="<?=$term->taxonomy?>" 
-                                            data-taxonomy="<?=$term->taxonomy?>" data-slug="<?= $term->slug; ?>" class="js-filter-item w-fit block py-1 px-4 font-light text-md shadow-md conversionBackgroundItem-<?php echo $i; ?>" href="<?= $term->term_id; ?>" >
+                                            data-taxonomy="<?=$term->taxonomy?>" data-slug="<?= $term->slug; ?>" class="js-filter-item w-fit block py-1 px-4 font-light text-base shadow-md conversionBackgroundItem-<?php echo $i; ?>" href="<?= $term->term_id; ?>" >
                                         <?= $term->name; ?>
                                 </a>
                                 </li>
@@ -89,7 +89,7 @@
                                 <li class="py-2">
                                     <a type="button" data-category="<?= $term->term_id; ?>" 
                                         data-posttype="<?=$term->taxonomy?>" 
-                                            data-taxonomy="<?=$term->taxonomy?>" data-slug="<?= $term->slug; ?>" class="js-filter-item w-fit block py-1 px-4 font-light text-md shadow-md moreBackgroundItem-<?php echo $i; ?>" href="<?= $term->term_id; ?>" >
+                                            data-taxonomy="<?=$term->taxonomy?>" data-slug="<?= $term->slug; ?>" class="js-filter-item w-fit block py-1 px-4 font-light text-base shadow-md moreBackgroundItem-<?php echo $i; ?>" href="<?= $term->term_id; ?>" >
                                         <?= $term->name; ?>
                                 </a>
                                 </li>
@@ -127,7 +127,7 @@
                         wp_nav_menu(
                             array(
                             'theme_location' => 'header-menu',
-                            'container_class' => 'headerMenuWrapper font-avenir font-medium text-lg italic',
+                            'container_class' => 'headerMenuWrapper font-avenir font-medium text-base tracking-wide italic',
                             )
                         );
                         ?>
@@ -193,7 +193,7 @@
                                 <div class="blogCardBlackOverlay">
                                     <div class="col-span-1 shadow-2xl">
                                     <?php $thumb = get_the_post_thumbnail_url(); ?>
-                                        <div class="relative blogPostCard rounded-2xl" style="background-image: linear-gradient(rgba(66,32,6,0.7) 0%, rgb(134, 191, 255,0.3) 130%), url('<?php echo $thumb;?>')">
+                                        <div class="relative blogPostCard rounded-xl" style="background-image: linear-gradient(rgba(66,32,6,0.7) 0%, rgb(134, 191, 255,0.3) 130%), url('<?php echo $thumb;?>')">
                                         <h1 class="blogPostCard_title font-sans text-white font-bold text-start"><?php the_title(); ?></h1>
                                         <!-- Gettng custom taxonomies associate with teh post -->
                                         <?php
@@ -231,7 +231,7 @@
         </div>
     </div>
     <div id="modal" class="modal">
-        <div class="p-5 modal-content">
+        <div class="modal-content">
             <div id="modal-content-placeholder"></div>
         </div>
     </div>

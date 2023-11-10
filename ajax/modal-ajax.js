@@ -9,6 +9,8 @@ jQuery(document).ready(function($) {
         // changing URL based on the post slug
         window.history.pushState(null, null, postSlug);
 
+        $('body').css('overflow', 'hidden');
+
         $.ajax({
             url: wpAjax.ajaxUrl, // WordPress AJAX endpoint
             type: 'post',
@@ -25,6 +27,7 @@ jQuery(document).ready(function($) {
 
     $('.homeInner').click(function() {
         $('#modal').hide();
+        $('body').css('overflow', 'auto');
     });
 
     $(window).click(function(event) {
