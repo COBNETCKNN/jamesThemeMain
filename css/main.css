@@ -536,6 +536,9 @@ video {
 .right-4 {
   right: 1rem;
 }
+.top-4 {
+  top: 1rem;
+}
 .col-span-1 {
   grid-column: span 1 / span 1;
 }
@@ -549,6 +552,10 @@ video {
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
+}
+.my-3 {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
 }
 .my-5 {
   margin-top: 1.25rem;
@@ -588,6 +595,9 @@ video {
 .h-20 {
   height: 5rem;
 }
+.h-\[50px\] {
+  height: 50px;
+}
 .h-auto {
   height: auto;
 }
@@ -598,17 +608,26 @@ video {
   height: -moz-max-content;
   height: max-content;
 }
+.w-1\/5 {
+  width: 20%;
+}
 .w-10\/12 {
   width: 83.333333%;
 }
 .w-11\/12 {
   width: 91.666667%;
 }
+.w-4\/5 {
+  width: 80%;
+}
 .w-8\/12 {
   width: 66.666667%;
 }
 .w-\[450px\] {
   width: 450px;
+}
+.w-\[50px\] {
+  width: 50px;
 }
 .w-fit {
   width: -moz-fit-content;
@@ -753,6 +772,9 @@ video {
 .pr-20 {
   padding-right: 5rem;
 }
+.text-left {
+  text-align: left;
+}
 .text-center {
   text-align: center;
 }
@@ -812,6 +834,10 @@ video {
 .text-avenir {
   --tw-text-opacity: 1;
   color: rgb(3 2 18 / var(--tw-text-opacity));
+}
+.text-black {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 .text-white {
   --tw-text-opacity: 1;
@@ -1309,6 +1335,58 @@ body {
   border-radius: 50%;
   width: 100px;
   height: 100px;
+}
+
+.newsletterModal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  width: 420px;
+  height: 70%;
+  text-align: center;
+  box-sizing: border-box;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+.newsletterModal.visible {
+  display: block;
+}
+
+.newsletterModal_content__warpper p a {
+  text-decoration: underline;
+}
+.newsletterModal_content__warpper p a:hover {
+  text-decoration: none;
+}
+
+.newsletter_testimonial__image img {
+  border-radius: 50%;
+}
+
+.newsletterModal_body {
+  max-height: 100%;
+  overflow-y: auto;
+}
+
+.modalContent_socialShare__icon {
+  color: #4742DE;
+}
+
+.modalContent_sociaMedia__wrapper {
+  padding-left: 10px;
+}
+
+.share-social {
+  margin-bottom: 2rem;
+}
+
+.line {
+  height: 3px;
+  flex: 1;
+  background-color: #030212;
+  margin: 0 1rem;
 }
 
 .placeholder\:text-black\/50::-moz-placeholder {

@@ -503,3 +503,63 @@ body {
 
     }
   }
+
+  // newsletter modal
+  .newsletterModal {
+    display: none;
+    position:fixed;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%,-50%);
+    background: #fff;
+    width: 420px;
+    height: 70%;
+    text-align: center;
+    box-sizing:border-box;
+    box-shadow:0 0 20px rgba(0,0,0,.2);
+    
+    &.visible {
+      display: block;
+    }
+  }
+
+  .newsletterModal_content__warpper {
+    p {
+        a {
+            text-decoration: underline;
+        }
+        a:hover {
+            text-decoration: none;
+        }
+    }
+  }
+
+  .newsletter_testimonial__image img {
+    border-radius: 50%;
+  }
+
+  .newsletterModal_body {
+    max-height: calc(100%);
+    overflow-y: auto;
+}
+
+// social share sectioin inside modal
+
+.modalContent_socialShare__icon {
+    color: #4742DE;
+}
+
+.modalContent_sociaMedia__wrapper {
+    padding-left: 10px;
+}
+
+.share-social {
+    margin-bottom: 2rem;
+}
+
+.line {
+    height: 3px;
+    flex: 1;
+    background-color: #030212;
+    margin: 0 1rem;
+}

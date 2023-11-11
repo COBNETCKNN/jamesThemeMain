@@ -56,11 +56,13 @@ function get_post_content() {
                     <?php 
                         echo the_content();
                     ?>
-                <div class="modalContent_author py-10">
+                <div class="modalContent_author py-5">
                     <span class="font-avenirLegit font-normal text-lg text-avenir italic">- <?php echo get_the_author(); ?></span>
                 </div>
                 </div>
             </div>
+            <!-- Social media sharing icons -->
+            <?php get_template_part('partials/social', 'share'); ?>
             <?php 
         }
     } else {

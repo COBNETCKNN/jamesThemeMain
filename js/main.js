@@ -19,7 +19,14 @@ jQuery(document).ready(function (jQuery) {
     //if you click on anything except the modal itself or the "open modal" link, close the modal
     if (!jQuery(event.target).closest(".singleModal").length) {
       jQuery("body").find(".singleModal").removeClass("visible");
-      console.log(window.location.href);
     }
+  });
+
+  /* Newsletter modal */
+  jQuery(".newsletterModal_open").click(function () {
+    jQuery(".newsletterModal").addClass("visible");
+  });
+  jQuery(".newsletterModal_close").click(function () {
+    jQuery(".newsletterModal").removeClass("visible");
   });
 });
