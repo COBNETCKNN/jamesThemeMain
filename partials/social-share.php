@@ -9,7 +9,7 @@
 
 ?>
 
-    <div class="share-social flex justify-center items-center text-2xl mb-10 px-10 md:px-20">
+    <div class="share-social flex justify-center items-center text-2xl pb-10 px-10 md:px-20">
     <div class="line"></div>
     <div class="share-social__title font-semibold text-sm text-avenir uppercase font-avenir">Click icon to share</div>
         <div class="modalContent_sociaMedia__wrapper">

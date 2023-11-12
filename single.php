@@ -2,9 +2,9 @@
 
 
 <div class="homeInner bg-white h-max container mx-auto">
-    <div class="grid grid-cols-6 gap-1 h-max pb-10">
+    <div class="grid md:grid-cols-6 gap-1 h-max pb-10">
         <!-- LEFT SIDE -->
-        <div class="col-span-1">
+        <div class="hidden md:block col-span-1">
             <div class="leftSidebar">
                 <!-- Logo -->
                 <div class="logoWrapper">
@@ -105,7 +105,7 @@
         </div>
         <!-- RIGHT SIDE -->
         <div class="col-span-5">
-            <div class="grid grid-cols-2 gap-4 h-20">
+            <div class="hidden md:grid grid-cols-2 gap-4 h-20">
                 <!-- Newsletter area -->
                 <?php 
                     $shortcode = get_field('newsletter_shortcode', 214);
@@ -165,8 +165,8 @@
             </div>
             <!-- Blog posts -->
             <div id="response"  class="ajax-posts">
-                <div class="blogPostsWrapper mt-10">
-                    <div class="grid grid-cols-3 gap-4 mr-5">
+                <div class="blogPostsWrapper mt-24 md:mt-10">
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:mr-5 mx-3">
                             <?php 
 
                             //query to load selected featured post on front page
@@ -223,6 +223,11 @@
     </div>
     <a href="<?php echo home_url(); ?>" class="modalRedirect bg-transparent"></a>
     <div class="singleModal visible">
+        <div class="modalClose_wrapper p-2 md:hidden absolute z-10 top-6 right-10">
+            <a href="<?php echo home_url(); ?>" class="modalPost_close">
+                <i class="fa-solid fa-x text-2xl text-white text-2xl"></i>
+            </a>
+        </div>
         <div class="singleModal_content">
             <div class="modalPost_wrapper mx-auto">
                 <!-- Thumbnail section of modal -->
@@ -260,11 +265,11 @@
                     </div>
                 </div>
                 <!-- Content section of modal -->
-                <div class="modal_contentArea__wrapper px-20 py-10">
+                <div class="modal_contentArea__wrapper px-10 md:px-20 py-10">
                         <?php 
                             echo the_content();
                         ?>
-                    <div class="modalContent_author py-10">
+                    <div class="modalContent_author py-5">
                         <span class="font-avenirLegit font-normal text-lg text-avenir italic">- <?php echo get_the_author(); ?></span>
                     </div>
                 </div>

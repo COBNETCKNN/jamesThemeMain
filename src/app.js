@@ -72,6 +72,11 @@ jQuery(document).ready(function(jQuery){
         jQuery('.modalPost_close').on('click', function(){
             jQuery('#modal').hide();
         });
+
+        jQuery('.js-filter-item').on('click', function(){
+            jQuery('.mobileCategories_wrapper').removeClass('visible');
+            jQuery('body').css('overflow', 'auto');
+        });
     })();
     
     
