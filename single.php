@@ -104,21 +104,23 @@
             </div>
         </div>
         <!-- RIGHT SIDE -->
-        <div class="col-span-5">
-            <div class="hidden md:grid grid-cols-2 gap-4 h-20">
+        <div class="md:col-span-5 lg:col-span-5">
+            <div class="hidden md:grid md:grid-cols-1 lg:grid-cols-2 gap-4 h-20">
                 <!-- Newsletter area -->
-                <?php 
-                    $shortcode = get_field('newsletter_shortcode', 214);
-                    echo do_shortcode($shortcode);
-                ?>
+                <div class="flex justify-start items-center hidden xl:block">
+                    <?php 
+                        $shortcode = get_field('newsletter_shortcode', 214);
+                        echo do_shortcode($shortcode);
+                    ?>
+                </div>
                 <!-- Pages and Social Media -->
-                <div class="flex justify-between items-center">
+                <div class="flex md:justify-end xl:justify-between items-center">
                     <div class="menuItems">
                         <?php 
                         wp_nav_menu(
                             array(
                             'theme_location' => 'header-menu',
-                            'container_class' => 'headerMenuWrapper font-avenir font-medium text-base tracking-wide italic',
+                            'container_class' => 'headerMenuWrapper font-avenir font-medium md:text-sm lg:text-base tracking-wide italic',
                             )
                         );
                         ?>
@@ -165,7 +167,7 @@
             </div>
             <!-- Blog posts -->
             <div id="response"  class="ajax-posts">
-                <div class="blogPostsWrapper mt-24 md:mt-10">
+                <div class="blogPostsWrapper md:mt-10">
                     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:mr-5 mx-3">
                             <?php 
 

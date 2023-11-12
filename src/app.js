@@ -9,7 +9,8 @@ jQuery(document).ready(function(jQuery){
     jQuery('.examplePosts_grid').masonry({
         // options
         itemSelector: '.imageContent',
-        columnWidth: 200,
+        columnWidth: 50,
+        isResizable: true
       });
 
       jQuery('.modal_wrapper').click(function() {
@@ -75,6 +76,7 @@ jQuery(document).ready(function(jQuery){
 
         jQuery('.modalPost_close').on('click', function(){
             jQuery('#modal').hide();
+            jQuery('body').css('overflow', 'auto');
         });
 
         jQuery('.js-filter-item').on('click', function(){

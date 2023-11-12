@@ -24,7 +24,7 @@
                 <!-- Acquisition Custom Taxonomy Sidebar -->
                 <div class="customTaxonomyWrapper my-6">
                     <h3 class="sidebarTitle p-1.5 w-fit bg-black text-white font-bold font-avenir uppercase text-sm italic">Acquisition</h3>
-                    <div class="customTaxonomyTerms w-full lg:w-10/12 border-solid border-2 border-gray-100 rounded-lg shadow-md font-avenir">
+                    <div class="customTaxonomyTerms w-full xl:w-10/12 border-solid border-2 border-gray-100 rounded-lg shadow-md font-avenir">
                         <ul class="categories-filter flex grid grid-cols-2" name="categoryfilter">
                             <?php
                             if( $terms = get_terms( array( 
@@ -37,7 +37,7 @@
                                 <li class="py-2">
                                     <a type="button"  data-category="<?= $term->term_id; ?>" 
                                         data-posttype="<?= $term->taxonomy?>" 
-                                            data-taxonomy="<?= $term->taxonomy?>"  data-slug="<?= $term->slug; ?>" class="js-filter-item w-fit block py-1 px-4 font-light text-base shadow-md acquisitionBackgroundItem-<?php echo $i; ?>" href="<?= $term->term_id; ?>" >
+                                            data-taxonomy="<?= $term->taxonomy?>"  data-slug="<?= $term->slug; ?>" class="js-filter-item w-fit block py-1 px-3 font-light text-sm 2xl:text-base shadow-md acquisitionBackgroundItem-<?php echo $i; ?>" href="<?= $term->term_id; ?>" >
                                         <?= $term->name; ?>
                                 </a>
                                 </li>
@@ -50,7 +50,7 @@
                 <!-- Conversion Custom Taxonomy Sidebar -->
                 <div class="customTaxonomyWrapper my-6">
                     <h3 class="sidebarTitle p-1.5 w-fit bg-black text-white font-bold font-avenir uppercase text-sm italic">Conversion</h3>
-                    <div class="customTaxonomyTerms w-full lg:w-8/12 border-solid border-2 border-gray-100 rounded-lg shadow-md font-avenir">
+                    <div class="customTaxonomyTerms w-full xl:w-8/12 border-solid border-2 border-gray-100 rounded-lg shadow-md font-avenir">
                         <ul class="categories-filter" name="categoryfilter">
                             <?php
                             if( $terms = get_terms( array( 
@@ -63,7 +63,7 @@
                                 <li class="py-2">
                                     <a type="button" data-category="<?= $term->term_id; ?>" 
                                         data-posttype="<?=$term->taxonomy?>" 
-                                            data-taxonomy="<?=$term->taxonomy?>" data-slug="<?= $term->slug; ?>" class="js-filter-item w-fit block py-1 px-4 font-light text-base shadow-md conversionBackgroundItem-<?php echo $i; ?>" href="<?= $term->term_id; ?>" >
+                                            data-taxonomy="<?=$term->taxonomy?>" data-slug="<?= $term->slug; ?>" class="js-filter-item w-fit block py-1 px-3 font-light text-sm 2xl:text-base shadow-md conversionBackgroundItem-<?php echo $i; ?>" href="<?= $term->term_id; ?>" >
                                         <?= $term->name; ?>
                                 </a>
                                 </li>
@@ -76,7 +76,7 @@
                 <!-- More Custom Taxonomy Sidebar -->
                 <div class="customTaxonomyWrapper my-6">
                     <h3 class="sidebarTitle p-1.5 w-fit bg-black text-white font-bold font-avenir uppercase text-sm italic">More</h3>
-                    <div class="customTaxonomyTerms w-full lg:w-10/12 border-solid border-2 border-gray-100 rounded-lg shadow-md font-avenir">
+                    <div class="customTaxonomyTerms w-full xl:w-10/12 border-solid border-2 border-gray-100 rounded-lg shadow-md font-avenir">
                         <ul class="categories-filter flex grid grid-cols-2" name="categoryfilter">
                             <?php
                             if( $terms = get_terms( array( 
@@ -89,7 +89,7 @@
                                 <li class="py-2">
                                     <a type="button" data-category="<?= $term->term_id; ?>" 
                                         data-posttype="<?=$term->taxonomy?>" 
-                                            data-taxonomy="<?=$term->taxonomy?>" data-slug="<?= $term->slug; ?>" class="js-filter-item w-fit block py-1 px-4 font-light text-base shadow-md moreBackgroundItem-<?php echo $i; ?>" href="<?= $term->term_id; ?>" >
+                                            data-taxonomy="<?=$term->taxonomy?>" data-slug="<?= $term->slug; ?>" class="js-filter-item w-fit block py-1 px-3 font-light text-sm 2xl:text-base shadow-md moreBackgroundItem-<?php echo $i; ?>" href="<?= $term->term_id; ?>" >
                                         <?= $term->name; ?>
                                 </a>
                                 </li>
@@ -105,16 +105,16 @@
         </div>
         <!-- RIGHT SIDE -->
         <div class="md:col-span-5 lg:col-span-5">
-            <div class="hidden md:grid md:grid-cols-1 lg:grid-cols-2 gap-4 h-20">
+            <div class="hidden md:grid md:grid-cols-1 xl:grid-cols-2 gap-4 h-20">
                 <!-- Newsletter area -->
-                <div class="flex justify-start items-center hidden lg:block">
+                <div class="flex justify-start items-center hidden xl:flex">
                 <?php 
                     $shortcode = get_field('newsletter_shortcode', 214);
                     echo do_shortcode($shortcode);
                 ?>
                 </div>
                 <!-- Pages and Social Media -->
-                <div class="flex md:justify-end lg:justify-between items-center">
+                <div class="flex md:justify-end xl:justify-between items-center">
                     <div class="menuItems">
                         <?php 
                         wp_nav_menu(
@@ -167,7 +167,7 @@
             </div>
             <!-- Blog posts -->
             <div id="response"  class="ajax-posts">
-                <div class="blogPostsWrapper mt-24 md:mt-10">
+                <div class="blogPostsWrapper md:mt-10">
                     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:mr-5 mx-3">
                             <?php 
 
@@ -245,7 +245,7 @@
     <div class="customTaxonomyWrapper my-6">
         <h3 class="sidebarTitle p-1.5 w-fit bg-black text-white font-bold font-avenir uppercase text-sm italic">Acquisition</h3>
         <div class="customTaxonomyTerms font-avenir">
-            <ul class="categories-filter flex justify-start" name="categoryfilter">
+            <ul class="categories-filter flex flex-wrap" name="categoryfilter">
                 <?php
                 if( $terms = get_terms( array( 
                     'taxonomy' => 'acquisition' ) ) ) : 
@@ -271,7 +271,7 @@
     <div class="customTaxonomyWrapper my-6">
         <h3 class="sidebarTitle p-1.5 w-fit bg-black text-white font-bold font-avenir uppercase text-sm italic">Conversion</h3>
         <div class="customTaxonomyTerms font-avenir">
-            <ul class="categories-filter flex" name="categoryfilter">
+            <ul class="categories-filter flex flex-wrap" name="categoryfilter">
                 <?php
                 if( $terms = get_terms( array( 
                     'taxonomy' => 'conversion' ) ) ) : 
@@ -297,7 +297,7 @@
     <div class="customTaxonomyWrapper my-6">
         <h3 class="sidebarTitle p-1.5 w-fit bg-black text-white font-bold font-avenir uppercase text-sm italic">More</h3>
         <div class="customTaxonomyTerms font-avenir">
-            <ul class="categories-filter flex" name="categoryfilter">
+            <ul class="categories-filter flex flex-wrap" name="categoryfilter">
                 <?php
                 if( $terms = get_terms( array( 
                     'taxonomy' => 'more' ) ) ) : 

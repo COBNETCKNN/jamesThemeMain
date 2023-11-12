@@ -12,7 +12,7 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        avenir: ["avenir", "sans-serif"],
+        avenir: ["Avenir", "sans-serif"],
       },
       colors: { 
         'avenir': '#030212',

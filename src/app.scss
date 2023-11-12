@@ -1,13 +1,20 @@
 // importing tailwind components
 @tailwind base;
 @tailwind components;
+
+@font-face {
+    font-family: 'Avenir';
+    src: local('Avenir'), url(./fonts/AvenirNextLTPro-It.otf) format('otf');
+  }
+
 @tailwind utilities;
 
+/*
 // importing local fonts
 @font-face {
 font-family: "avenir";
-src: url("/fonts/AvenirNextLTPro-It.otf");
-}
+src: url("fonts/AvenirNextLTPro-Regular.otf");
+} */
 
 body.modal-open {
     overflow: hidden;
@@ -578,7 +585,7 @@ body {
   }
   
   nav.mobile-menu {
-      position: fixed;
+      position: static;
       background: white;
       box-sizing: border-box;
       width: 100%;
@@ -679,7 +686,6 @@ border-radius: 2px;
     overflow-y: hidden;
 }
 
-
   @media (max-width: 768px) { 
     .newsletterModal {
         display: none;
@@ -750,5 +756,20 @@ border-radius: 2px;
                 width: 25px;
             }
         }
+    }
+    
+    .grid-item {
+        width: 80%;
+    }
+
+    .imageContent {
+        left: 50px !important;
+        top: 0;
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 1460px) {
+    .grid-item {
+        width: 45%;
     }
 }

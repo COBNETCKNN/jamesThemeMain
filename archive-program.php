@@ -2,9 +2,9 @@
 
 
 <div class="homeInner bg-white container mx-auto">
-    <div class="grid md:grid-cols-6 gap-1 pb-10">
+    <div class="grid md:grid-cols-7 lg:grid-cols-6 gap-1 h-max pb-10">
         <!-- LEFT SIDE -->
-        <div class="hidden md:block col-span-1">
+        <div class="hidden md:block md:col-span-2 lg:col-span-1">
             <div class="leftSidebar">
                 <!-- Logo -->
                 <div class="logoWrapper">
@@ -22,7 +22,7 @@
                 </div>
                 <!-- Custom Taxonomies -->
                 <div class="customTaxonomyWrapper my-6">
-                    <div class="customTaxonomyTerms w-11/12 border-solid border-2 border-gray-100 rounded-lg shadow-md font-avenir py-2">
+                    <div class="customTaxonomyTerms lg:w-11/12 border-solid border-2 border-gray-100 rounded-lg shadow-md font-avenir py-2">
                         <ul class="categories-filter flex flex-wrap" name="categoryfilter">
                             <?php 
                             $cat_args = get_terms(array(
@@ -34,7 +34,7 @@
 
                             foreach($categories as $term) : ?>
                                 <li class="py-2 mx-1 w-fit">
-                                <a class="cat-list_item w-fit block py-1 px-4 font-light text-base shadow-md acquisitionBackgroundItem-<?php echo $i; ?>" href="#!" data-slug="<?= $term->slug; ?>">
+                                <a class="cat-list_item w-fit block py-1 px-4 font-light text-sm lg:text-base shadow-md acquisitionBackgroundItem-<?php echo $i; ?>" href="#!" data-slug="<?= $term->slug; ?>">
                                     <?= $term->name; ?>
                                 </a>
                                 </li>
@@ -50,21 +50,23 @@
             </div>
         </div>
         <!-- RIGHT SIDE -->
-        <div class="col-span-5">
-            <div class="hidden md:grid grid-cols-2 gap-4 h-20">
+        <div class="md:col-span-5 lg:col-span-5">
+            <div class="hidden md:grid md:grid-cols-1 xl:grid-cols-2 gap-4 h-20">
                 <!-- Newsletter area -->
-                <?php 
-                    $shortcode = get_field('newsletter_shortcode', 214);
-                    echo do_shortcode($shortcode);
-                ?>
+                <div class="flex justify-start items-center hidden xl:flex">
+                    <?php 
+                        $shortcode = get_field('newsletter_shortcode', 214);
+                        echo do_shortcode($shortcode);
+                    ?>
+                </div>
                 <!-- Pages and Social Media -->
-                <div class="flex justify-between items-center">
+                <div class="flex justify-end xl:justify-between items-center">
                     <div class="menuItems">
                         <?php 
                         wp_nav_menu(
                             array(
                             'theme_location' => 'header-menu',
-                            'container_class' => 'headerMenuWrapper font-avenir font-medium text-base tracking-wide italic',
+                            'container_class' => 'headerMenuWrapper font-avenir font-medium md:text-sm lg:text-base tracking-wide italic',
                             )
                         );
                         ?>
@@ -111,7 +113,7 @@
             </div>
             <!-- Blog posts -->
             <div id="copywritingExamples_response"  class="copywritingExamplesAjax-posts md:mx-0">
-                <div class="examplesPosts_wrapper mt-24 md:mt-10">
+                <div class="examplesPosts_wrapper md:mt-10">
                     <div class="examplePosts_grid mx-3 md:mx-0">
                             <?php
                             $args = array(
