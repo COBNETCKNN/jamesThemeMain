@@ -2,9 +2,9 @@
 
 
 <div class="homeInner bg-white h-max container mx-auto">
-    <div class="grid grid-cols-6 gap-1 h-max pb-10">
+    <div class="grid md:grid-cols-6 gap-1 h-max pb-10">
         <!-- LEFT SIDE -->
-        <div class="col-span-1">
+        <div class="hidden md:block col-span-1">
             <div class="leftSidebar">
                 <!-- Logo -->
                 <div class="logoWrapper">
@@ -105,7 +105,7 @@
         </div>
         <!-- RIGHT SIDE -->
         <div class="col-span-5">
-            <div class="grid grid-cols-2 gap-4 h-20">
+            <div class="hidden md:grid grid-cols-2 gap-4 h-20">
                 <!-- Newsletter area -->
                 <?php 
                     $shortcode = get_field('newsletter_shortcode', 214);
@@ -165,8 +165,8 @@
             </div>
             <!-- Blog posts -->
             <div id="response"  class="ajax-posts">
-                <div class="blogPostsWrapper mt-10">
-                    <div class="grid grid-cols-3 gap-4 mr-5">
+                <div class="blogPostsWrapper mt-24 md:mt-10">
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:mr-5 mx-3">
                             <?php 
 
                             //query to load selected featured post on front page
@@ -221,13 +221,104 @@
         </div>
     </div>
     <!-- Content Modal -->
-    <div id="modal" class="modal">
+    <div id="modal" class="modal relative">
+        <div class="modalClose_wrapper p-2 md:hidden absolute z-10 top-6 right-10">
+            <a href="#" class="modalPost_close">
+                <i class="fa-solid fa-x text-2xl text-white text-2xl"></i>
+            </a>
+        </div>
         <div class="modal-content">
             <div id="modal-content-placeholder"></div>
         </div>
     </div>
     <!-- Newsletter modal -->
     <?php get_template_part('partials/newsletter', 'modal'); ?>
+    <!-- Mobile categories -->
+    <div class="mobileCategories_wrapper hidden w-full h-fit bg-white absolute bottom-0 right-0">
+    <div class="">
+    <a href="#" class="close_mobileCategories__wrapper absolute top-6 right-5">
+        <i class="fa-solid fa-x text-2xl text-black"></i>
+    </a>
+    </div>
+    <div class="customTaxonomyWrapper my-6">
+        <h3 class="sidebarTitle p-1.5 w-fit bg-black text-white font-bold font-avenir uppercase text-sm italic">Acquisition</h3>
+        <div class="customTaxonomyTerms font-avenir">
+            <ul class="categories-filter flex justify-start" name="categoryfilter">
+                <?php
+                if( $terms = get_terms( array( 
+                    'taxonomy' => 'acquisition' ) ) ) : 
+
+                    $i = 0;
+                    foreach ( $terms as $term ) :
+                    
+                    ?>
+                    <li class="py-2 mx-2">
+                        <a type="button"  data-category="<?= $term->term_id; ?>" 
+                            data-posttype="<?= $term->taxonomy?>" 
+                                data-taxonomy="<?= $term->taxonomy?>"  data-slug="<?= $term->slug; ?>" class="js-filter-item w-fit block py-1 px-4 font-light text-base shadow-md acquisitionBackgroundItem-<?php echo $i; ?>" href="<?= $term->term_id; ?>" >
+                            <?= $term->name; ?>
+                    </a>
+                    </li>
+                    <?php $i++; ?>
+                <?php endforeach; endif; ?>
+                
+            </ul>
+        </div>
+    </div>
+    <!-- Conversion Custom Taxonomy Sidebar -->
+    <div class="customTaxonomyWrapper my-6">
+        <h3 class="sidebarTitle p-1.5 w-fit bg-black text-white font-bold font-avenir uppercase text-sm italic">Conversion</h3>
+        <div class="customTaxonomyTerms font-avenir">
+            <ul class="categories-filter flex" name="categoryfilter">
+                <?php
+                if( $terms = get_terms( array( 
+                    'taxonomy' => 'conversion' ) ) ) : 
+
+                    $i = 0;
+                    foreach ( $terms as $term ) :
+                    
+                    ?>
+                    <li class="py-2 mx-2">
+                        <a type="button" data-category="<?= $term->term_id; ?>" 
+                            data-posttype="<?=$term->taxonomy?>" 
+                                data-taxonomy="<?=$term->taxonomy?>" data-slug="<?= $term->slug; ?>" class="js-filter-item w-fit block py-1 px-4 font-light text-base shadow-md conversionBackgroundItem-<?php echo $i; ?>" href="<?= $term->term_id; ?>" >
+                            <?= $term->name; ?>
+                    </a>
+                    </li>
+                    <?php $i++; ?>
+                <?php endforeach; endif; ?>
+                
+            </ul>
+        </div>
+    </div>
+    <!-- More Custom Taxonomy Sidebar -->
+    <div class="customTaxonomyWrapper my-6">
+        <h3 class="sidebarTitle p-1.5 w-fit bg-black text-white font-bold font-avenir uppercase text-sm italic">More</h3>
+        <div class="customTaxonomyTerms font-avenir">
+            <ul class="categories-filter flex" name="categoryfilter">
+                <?php
+                if( $terms = get_terms( array( 
+                    'taxonomy' => 'more' ) ) ) : 
+
+                    $i = 0;
+                    foreach ( $terms as $term ) :
+                    
+                    ?>
+                    <li class="py-2 mx-2">
+                        <a type="button" data-category="<?= $term->term_id; ?>" 
+                            data-posttype="<?=$term->taxonomy?>" 
+                                data-taxonomy="<?=$term->taxonomy?>" data-slug="<?= $term->slug; ?>" class="js-filter-item w-fit block py-1 px-4 font-light text-base shadow-md moreBackgroundItem-<?php echo $i; ?>" href="<?= $term->term_id; ?>" >
+                            <?= $term->name; ?>
+                    </a>
+                    </li>
+                    <?php $i++; ?>
+                <?php endforeach; endif; ?>
+                
+            </ul>
+        </div>
+    </div>
+
+    </div>
 </div>
 
 <?php get_footer(); ?>

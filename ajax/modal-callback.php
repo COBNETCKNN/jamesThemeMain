@@ -52,7 +52,7 @@ function get_post_content() {
                     </div>
                 </div>
                 <!-- Content section of modal -->
-                <div class="modal_contentArea__wrapper px-20 py-10">
+                <div class="modal_contentArea__wrapper px-10 md:px-20 py-10">
                     <?php 
                         echo the_content();
                     ?>
