@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 
-<div class="homeInner bg-white h-max container mx-auto">
+<div class="homeInner bg-white h-fit min-h-screen container mx-auto">
     <div class="grid md:grid-cols-6 gap-1 h-max pb-10">
         <!-- LEFT SIDE -->
         <div class="hidden md:block col-span-1">

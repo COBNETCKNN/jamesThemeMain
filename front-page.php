@@ -2,9 +2,9 @@
 
 
 <div class="homeInner bg-white h-fit min-h-screen container mx-auto">
-    <div class="grid md:grid-cols-6 gap-1 h-max pb-10">
+    <div class="grid md:grid-cols-7 lg:grid-cols-6 gap-1 h-max pb-10">
         <!-- LEFT SIDE -->
-        <div class="hidden md:block col-span-1">
+        <div class="hidden md:block md:col-span-2 lg:col-span-1">
             <div class="leftSidebar">
                 <!-- Logo -->
                 <div class="logoWrapper">
@@ -24,7 +24,7 @@
                 <!-- Acquisition Custom Taxonomy Sidebar -->
                 <div class="customTaxonomyWrapper my-6">
                     <h3 class="sidebarTitle p-1.5 w-fit bg-black text-white font-bold font-avenir uppercase text-sm italic">Acquisition</h3>
-                    <div class="customTaxonomyTerms w-10/12 border-solid border-2 border-gray-100 rounded-lg shadow-md font-avenir">
+                    <div class="customTaxonomyTerms w-full lg:w-10/12 border-solid border-2 border-gray-100 rounded-lg shadow-md font-avenir">
                         <ul class="categories-filter flex grid grid-cols-2" name="categoryfilter">
                             <?php
                             if( $terms = get_terms( array( 
@@ -50,7 +50,7 @@
                 <!-- Conversion Custom Taxonomy Sidebar -->
                 <div class="customTaxonomyWrapper my-6">
                     <h3 class="sidebarTitle p-1.5 w-fit bg-black text-white font-bold font-avenir uppercase text-sm italic">Conversion</h3>
-                    <div class="customTaxonomyTerms w-8/12 border-solid border-2 border-gray-100 rounded-lg shadow-md font-avenir">
+                    <div class="customTaxonomyTerms w-full lg:w-8/12 border-solid border-2 border-gray-100 rounded-lg shadow-md font-avenir">
                         <ul class="categories-filter" name="categoryfilter">
                             <?php
                             if( $terms = get_terms( array( 
@@ -76,7 +76,7 @@
                 <!-- More Custom Taxonomy Sidebar -->
                 <div class="customTaxonomyWrapper my-6">
                     <h3 class="sidebarTitle p-1.5 w-fit bg-black text-white font-bold font-avenir uppercase text-sm italic">More</h3>
-                    <div class="customTaxonomyTerms w-10/12 border-solid border-2 border-gray-100 rounded-lg shadow-md font-avenir">
+                    <div class="customTaxonomyTerms w-full lg:w-10/12 border-solid border-2 border-gray-100 rounded-lg shadow-md font-avenir">
                         <ul class="categories-filter flex grid grid-cols-2" name="categoryfilter">
                             <?php
                             if( $terms = get_terms( array( 
@@ -104,21 +104,23 @@
             </div>
         </div>
         <!-- RIGHT SIDE -->
-        <div class="col-span-5">
-            <div class="hidden md:grid grid-cols-2 gap-4 h-20">
+        <div class="md:col-span-5 lg:col-span-5">
+            <div class="hidden md:grid md:grid-cols-1 lg:grid-cols-2 gap-4 h-20">
                 <!-- Newsletter area -->
+                <div class="flex justify-start items-center hidden lg:block">
                 <?php 
                     $shortcode = get_field('newsletter_shortcode', 214);
                     echo do_shortcode($shortcode);
                 ?>
+                </div>
                 <!-- Pages and Social Media -->
-                <div class="flex justify-between items-center">
+                <div class="flex md:justify-end lg:justify-between items-center">
                     <div class="menuItems">
                         <?php 
                         wp_nav_menu(
                             array(
                             'theme_location' => 'header-menu',
-                            'container_class' => 'headerMenuWrapper font-avenir font-medium text-base tracking-wide italic',
+                            'container_class' => 'headerMenuWrapper font-avenir font-medium md:text-sm lg:text-base tracking-wide italic',
                             )
                         );
                         ?>

@@ -1,10 +1,10 @@
 <?php get_header(); ?>
 
 
-<div class="homeInner bg-white h-max container mx-auto">
-    <div class="grid grid-cols-6 gap-1 h-max pb-10">
+<div class="homeInner bg-white container mx-auto">
+    <div class="grid md:grid-cols-6 gap-1 pb-10">
         <!-- LEFT SIDE -->
-        <div class="col-span-1">
+        <div class="hidden md:block col-span-1">
             <div class="leftSidebar">
                 <!-- Logo -->
                 <div class="logoWrapper">
@@ -51,7 +51,7 @@
         </div>
         <!-- RIGHT SIDE -->
         <div class="col-span-5">
-            <div class="grid grid-cols-2 gap-4 h-20">
+            <div class="hidden md:grid grid-cols-2 gap-4 h-20">
                 <!-- Newsletter area -->
                 <?php 
                     $shortcode = get_field('newsletter_shortcode', 214);
@@ -110,9 +110,9 @@
                 </div>
             </div>
             <!-- Blog posts -->
-            <div id="copywritingExamples_response"  class="copywritingExamplesAjax-posts">
-                <div class="examplesPosts_wrapper mt-10">
-                    <div class="examplePosts_grid">
+            <div id="copywritingExamples_response"  class="copywritingExamplesAjax-posts md:mx-0">
+                <div class="examplesPosts_wrapper mt-24 md:mt-10">
+                    <div class="examplePosts_grid mx-3 md:mx-0">
                             <?php
                             $args = array(
                                 'post_type'      => 'program', 
@@ -155,6 +155,39 @@
     </div>
     <!-- Newsletter modal -->
     <?php get_template_part('partials/newsletter', 'modal'); ?>
+    <!-- Mobile categories -->
+    <div class="examplesMobileCategories_wrapper hidden w-full h-fit bg-white absolute bottom-0 right-0">
+        <div class="">
+        <a href="#" class="close_mobileCategories__wrapper absolute top-6 right-5">
+            <i class="fa-solid fa-x text-2xl text-black"></i>
+        </a>
+        </div>
+        <!-- Custom Taxonomies -->
+        <div class="customTaxonomyWrapper my-6">
+            <div class="customTaxonomyTerms font-avenir py-2">
+                <ul class="categories-filter flex flex-wrap" name="categoryfilter">
+                    <?php 
+                    $cat_args = get_terms(array(
+                        'taxonomy' => 'category',
+                    ));
+
+                    $categories = $cat_args;
+                    $i = 0;
+
+                    foreach($categories as $term) : ?>
+                        <li class="py-2 mx-1 w-fit">
+                        <a class="cat-list_item w-fit block py-1 px-4 font-light text-base shadow-md acquisitionBackgroundItem-<?php echo $i; ?>" href="#!" data-slug="<?= $term->slug; ?>">
+                            <?= $term->name; ?>
+                        </a>
+                        </li>
+                    <?php 
+                        $i++;
+                        endforeach; 
+                    ?>
+                </ul>
+            </div>
+        </div>
+    </div>
 </div>
 
 <?php get_footer(); ?>

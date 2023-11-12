@@ -6,7 +6,7 @@ jQuery(document).ready(function (jQuery) {
   });
   jQuery('.examplePosts_grid').masonry({
     // options
-    itemSelector: '.grid-item',
+    itemSelector: '.imageContent',
     columnWidth: 200
   });
   jQuery('.modal_wrapper').click(function () {
@@ -39,6 +39,7 @@ jQuery(document).ready(function (jQuery) {
       jQuery('.mobile-menu-overlay').toggleClass('visible');
       jQuery('.blogPostsWrapper').addClass('nonvisible');
       jQuery('.hamburger-wrapper').addClass('nonvisible');
+      jQuery('.copywritingExamplesAjax-posts').addClass('nonvisible');
     });
     jQuery('.mobile-menu-overlay > ul > li > a').on('click', function () {
       jQuery('.hamburger-menu').removeClass('animate');
@@ -51,13 +52,16 @@ jQuery(document).ready(function (jQuery) {
       jQuery('.mobile-menu-overlay').removeClass('visible');
       jQuery('.blogPostsWrapper').removeClass('nonvisible');
       jQuery('.hamburger-wrapper').removeClass('nonvisible');
+      jQuery('.copywritingExamplesAjax-posts').removeClass('nonvisible');
     });
     jQuery('.categories_icon').on('click', function () {
       jQuery('.mobileCategories_wrapper').toggleClass('visible');
+      jQuery('.examplesMobileCategories_wrapper').toggleClass('visible');
       jQuery('body').css('overflow', 'hidden');
     });
     jQuery('.close_mobileCategories__wrapper').on('click', function () {
       jQuery('.mobileCategories_wrapper').removeClass('visible');
+      jQuery('.examplesMobileCategories_wrapper').removeClass('visible');
       jQuery('body').css('overflow', 'auto');
     });
     jQuery('.modalPost_close').on('click', function () {
@@ -65,6 +69,10 @@ jQuery(document).ready(function (jQuery) {
     });
     jQuery('.js-filter-item').on('click', function () {
       jQuery('.mobileCategories_wrapper').removeClass('visible');
+      jQuery('body').css('overflow', 'auto');
+    });
+    jQuery('.cat-list_item').on('click', function () {
+      jQuery('.examplesMobileCategories_wrapper').removeClass('visible');
       jQuery('body').css('overflow', 'auto');
     });
   })();

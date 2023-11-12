@@ -18,8 +18,8 @@ function ce_filter_ajax_term(){
 	  'order' => 'desc',
 	]); ?>
 
-		<div class="examplesPosts_wrapper mt-10">
-			<div class="examplePosts_grid">
+		<div class="examplesPosts_wrapper mt-24 md:mt-10">
+			<div class="examplePosts_grid mx-3 md:mx-0">
 
             <?php if ( $ajaxposts->have_posts() ) : 
                 while ( $ajaxposts->have_posts() ) : $ajaxposts->the_post(); ?>
