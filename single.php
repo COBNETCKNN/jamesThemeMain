@@ -2,7 +2,7 @@
 
 
 <div class="homeInner bg-white h-fit min-h-screen container mx-auto">
-    <a href="<?php echo home_url(); ?>" class="modalRedirect_close__button cursor-pointer lg:block;">
+    <a href="<?php echo home_url(); ?>" class="modalRedirect_close__button cursor-pointer">
         <i class="fa-solid fa-x absolute top-8 right-10 text-2xl z-10"></i>
     </a>
     <div class="grid md:grid-cols-6 gap-1 h-max pb-10">
@@ -170,7 +170,7 @@
             </div>
             <!-- Blog posts -->
             <div id="response"  class="ajax-posts">
-                <div class="blogPostsWrapper md:mt-10">
+                <div class="blogPostsWrapper mt-24 md:mt-10">
                     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:mr-5 mx-3 md:mx-0">
                             <?php 
 
@@ -228,12 +228,13 @@
     </div>
     <a href="<?php echo home_url(); ?>" class="modalRedirect bg-transparent"></a>
     <div class="singleModal visible">
-        <div class="modalClose_wrapper p-2 md:hidden absolute z-10 top-3 right-3">
+        <div class="modalClose_wrapper p-2 md:hidden absolute z-10 top-5 right-3">
             <a href="<?php echo home_url(); ?>" class="modalPost_close">
                 <i class="fa-solid fa-x text-lg text-white text-2xl"></i>
             </a>
         </div>
         <div class="singleModal_content">
+            <?php $thumb = get_the_post_thumbnail_url(); ?>
             <div class="modalPost_wrapper mx-auto">
                 <!-- Thumbnail section of modal -->
                 <div class="relative modalPost_thumbnail__wrapper flex justify-center">
@@ -269,8 +270,34 @@
                             </div>
                     </div>
                 </div>
+                <!-- Mobile thumbnail -->
+                <div class="md:hidden relative mobileThumbnail_wrapper h-[200px] w-full" style="background-image: url('<?php echo $thumb;?>')">
+                    <h1 class="blogPostCard_title__modal text-2xl font-sans text-white font-bold text-center"><?php the_title(); ?></h1>
+                    <div class="">
+                        <?php
+                        $post_id = get_the_ID();
+                        $terms = get_the_terms($post_id, 'acquisition');
+
+                        if ($terms && !is_wp_error($terms)) {
+                            $first_term = reset($terms); ?>
+                            <span class="blogCard_taxonomy__item py-1 px-4 text-sm rounded-2xl absolute bottom-4 right-4 font-medium item-<?php echo $first_term->slug; ?>"><?php echo $first_term->name; ?></span>
+                        <?php
+                        }
+                        ?>
+                        <!-- Reading time -->
+                        <div class="blogPost_readingTime__wrapper">
+                            <?php 
+                            $readingTime = get_field('reading_time');
+                            ?>
+                            <div class="blogPost_readingTime text-white text-avenir absolute bottom-4 left-4">
+                                <i class="fa-regular fa-lightbulb"></i>
+                                <span><?php echo $readingTime; ?></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <!-- Content section of modal -->
-                <div class="modal_contentArea__wrapper px-4 md:px-20 py-10">
+                <div class="modal_contentArea__wrapper md:px-20 py-10">
                         <?php 
                             echo the_content();
                         ?>

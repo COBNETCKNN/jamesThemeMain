@@ -2,7 +2,7 @@
 
 
 <div class="homeInner bg-white h-fit min-h-screen container mx-auto">
-    <a class="modalRedirect_close__button cursor-pointer hidden lg:block">
+    <a class="modalRedirect_close__button cursor-pointer hidden">
         <i class="fa-solid fa-x absolute top-8 right-10 text-2xl z-10"></i>
     </a>
     <a class="modalRedirect hidden">
@@ -172,7 +172,7 @@
             </div>
             <!-- Blog posts -->
             <div id="response"  class="ajax-posts">
-                <div class="blogPostsWrapper md:mt-10">
+                <div class="blogPostsWrapper mt-24 md:mt-10">
                     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:mr-5 mx-3 md:mx-0">
                             <?php 
 
@@ -246,7 +246,7 @@
     <!-- Content Modal -->
     <div id="modal" class="modal relative">
         <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-        <div class="modalClose_wrapper p-2 md:hidden absolute z-10 top-3 right-3">
+        <div class="modalClose_wrapper p-2 md:hidden absolute z-10 top-5 right-3">
             <a href="#!" class="modalPost_close">
                 <i class="fa-solid fa-x text-lg text-white text-2xl"></i>
             </a>

@@ -593,7 +593,8 @@ body {
   }
   
   nav.mobile-menu {
-      position: static;
+      position: fixed;
+      z-index: 1337;
       background: white;
       box-sizing: border-box;
       width: 100%;
@@ -784,6 +785,12 @@ border-radius: 2px;
     }
 }
 
+.wp-block-image {
+    display: flex;
+    justify-content: center;
+
+}
+
   @media (max-width: 768px) { 
     .newsletterModal {
         display: none;
@@ -850,15 +857,31 @@ border-radius: 2px;
             border: 3px solid #f7f7f7;
         }
     }
-  }
 
-  .modalPost_thumbnail {
-    position: static;
-    left: 0;
-    right: 0;
-    z-index: 9;
-    width: 450px;
+    .modalPost_thumbnail__wrapper {
+        display: none;
+    }
+
+    .mobileThumbnail_wrapper {
+        background-size: cover;
+    }
+    
+    .modal_contentArea__wrapper{
+        p, h1, h2 {
+            padding: 0.7rem 2rem !important;
+        }
+    }
+
+    .modalContent_author {
+        padding: 0.7rem 2rem !important;
+    }
+
+    .modalRedirect_close__button {
+        display: none !important; 
+    }
 }
+
+
 
   @media (min-width: 768px) and (max-width: 1025px) {
     .socialMediaIcons {
@@ -883,7 +906,9 @@ border-radius: 2px;
         overflow-y: scroll; 
         height:270px;
       }
+
 }
+
 
 @media (min-width: 1025px) and (max-width: 1460px) {
     .grid-item {

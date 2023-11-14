@@ -17,10 +17,10 @@ function get_post_content() {
             $thumb = get_the_post_thumbnail_url();
             ?>
             <div class="modalPost_wrapper mx-auto">
-                <!-- Thumbnail section of modal -->
+                <!-- Thumbnail section of modal tablet and desktop -->
                 <div class="relative modalPost_thumbnail__wrapper flex justify-center">
-                    <div class="modalPost_thumbnail__blured" style="background-image: linear-gradient(rgba(66,32,6,0.7) 0%, rgb(134, 191, 255,0.3) 130%), url('<?php echo $thumb;?>')"></div>
-                    <div class="modalPost_thumbnail mx-auto static">
+                    <div class="hidden md:block modalPost_thumbnail__blured" style="background-image: linear-gradient(rgba(66,32,6,0.7) 0%, rgb(134, 191, 255,0.3) 130%), url('<?php echo $thumb;?>')"></div>
+                    <div class="modalPost_thumbnail relative mx-auto">
                         <?php 
                                 if ( has_post_thumbnail() ) {
                                     the_post_thumbnail( 'modal-thumbnail', array( 'class' => 'pb-5 mx-auto modal_post__thumbnail') );
@@ -51,8 +51,34 @@ function get_post_content() {
                             </div>
                     </div>
                 </div>
+                <!-- Mobile thumbnail -->
+                <div class="md:hidden relative mobileThumbnail_wrapper h-[200px] w-full" style="background-image: url('<?php echo $thumb;?>')">
+                    <h1 class="blogPostCard_title__modal text-2xl font-sans text-white font-bold text-center"><?php the_title(); ?></h1>
+                    <div class="">
+                        <?php
+                        $post_id = get_the_ID();
+                        $terms = get_the_terms($post_id, 'acquisition');
+
+                        if ($terms && !is_wp_error($terms)) {
+                            $first_term = reset($terms); ?>
+                            <span class="blogCard_taxonomy__item py-1 px-4 text-sm rounded-2xl absolute bottom-4 right-4 font-medium item-<?php echo $first_term->slug; ?>"><?php echo $first_term->name; ?></span>
+                        <?php
+                        }
+                        ?>
+                        <!-- Reading time -->
+                        <div class="blogPost_readingTime__wrapper">
+                            <?php 
+                            $readingTime = get_field('reading_time');
+                            ?>
+                            <div class="blogPost_readingTime text-white text-avenir absolute bottom-4 left-4">
+                                <i class="fa-regular fa-lightbulb"></i>
+                                <span><?php echo $readingTime; ?></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <!-- Content section of modal -->
-                <div class="modal_contentArea__wrapper px-4 md:px-20 py-10">
+                <div class="modal_contentArea__wrapper md:px-20 py-10">
                     <?php 
                         echo the_content();
                     ?>

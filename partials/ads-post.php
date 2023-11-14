@@ -35,7 +35,7 @@ while($adsQuery->have_posts()){
             }
             ?>
         </div>
-        <div class="ads_text__wrapper flex justify-center font-medium text-base text-center font-avenir tetxt-base text-avenir my-2 mx-3">
+        <div class="ads_text__wrapper flex justify-center font-medium text-sm xl:text-base text-center font-avenir text-avenir my-2 mx-3">
             <?php echo $adsText; ?>
         </div>
         <div class="ads_button__wrapper flex justify-center my-2">

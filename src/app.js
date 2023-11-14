@@ -92,10 +92,13 @@ jQuery(document).ready(function(jQuery){
             jQuery('.examplesMobileCategories_wrapper').removeClass('visible');
             jQuery('body').css('overflow', 'auto');
         });
+
         jQuery('.view-post').on('click', function () {
-            //$('.modalRedirect').show();
+            jQuery('.modalRedirect_close__button').addClass('visible');
+        });
+
+        jQuery('.modalRedirect').on('click', function(){
+            jQuery('.modalRedirect_close__button').removeClass('visible');
         });
     })();
-    
-    
 });
