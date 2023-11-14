@@ -2,8 +2,10 @@ jQuery(document).ready(function(jQuery){
 
     jQuery('#modal').modal().on('shown', function(){
         jQuery('body').css('overflow', 'hidden');
+        jQuery('.modalRedirect').addClass('visible');
     }).on('hidden', function(){
         jQuery('body').css('overflow', 'auto');
+        jQuery('.modalRedirect').removeClass('visible');
     })
 
     jQuery('.examplePosts_grid').masonry({
@@ -24,6 +26,7 @@ jQuery(document).ready(function(jQuery){
         //if you click on anything except the modal itself or the "open modal" link, close the modal
         if (!jQuery(event.target).closest(".singleModal").length) {
           jQuery("body").find(".singleModal").removeClass("visible");
+          jQuery(".modalRedirect_close__button").find(".singleModal").removeClass("visible");
         }
     });
 
@@ -77,6 +80,7 @@ jQuery(document).ready(function(jQuery){
         jQuery('.modalPost_close').on('click', function(){
             jQuery('#modal').hide();
             jQuery('body').css('overflow', 'auto');
+            jQuery('.modalRedirect').removeClass('visible');
         });
 
         jQuery('.js-filter-item').on('click', function(){
@@ -87,6 +91,9 @@ jQuery(document).ready(function(jQuery){
         jQuery('.cat-list_item').on('click', function(){ 
             jQuery('.examplesMobileCategories_wrapper').removeClass('visible');
             jQuery('body').css('overflow', 'auto');
+        });
+        jQuery('.view-post').on('click', function () {
+            //$('.modalRedirect').show();
         });
     })();
     

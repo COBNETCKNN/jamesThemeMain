@@ -258,11 +258,25 @@ body {
     overflow-y: auto;
     outline: 0;
     position: fixed;
-    top: 10%;
+    top: 5%;
     left: 50%;
     transform: translateX(-50%);
-    height: 80%;
+    height: 90%;
     background-color: white;
+    border-radius: 5px;
+}
+
+.modalRedirect {
+    position: absolute;
+    opacity: 0.4;
+    z-index: 5;
+    left: 0; 
+    top: 0;
+    width: 100%;
+    height: 1000%;
+    overflow: hidden;
+    background-color: #fff;
+    transition: all 0.5s ease;
 }
 
 .modal.show .modal-dialog {
@@ -479,27 +493,16 @@ body {
     transform:translate(-50%,-50%);
     background: #fff;
     width: 800px;
-    height: 80%;
+    height: 85%;
     box-sizing:border-box;
     box-shadow:0 0 20px rgba(0,0,0,.2);
     overflow-y: auto;
     z-index: 10;
+    border-radius: 5px;
     
     &.visible {
       display: block;
     }
-  }
-
-  .modalRedirect {
-    position:fixed;
-    top: 50%;
-    left: 50%;
-    transform:translate(-50%,-50%);
-    width: 100%;
-    height: 100%;
-    box-sizing:border-box;
-    overflow-y: auto;
-    z-index: 5;
   }
 
   .newsletterImage_wrapper {
@@ -528,6 +531,11 @@ body {
     &.visible {
       display: block;
     }
+  }
+
+  .newsletterModal_testimonials {
+    overflow-y: scroll; 
+    height:280px;
   }
 
   .newsletterModal_content__warpper {
@@ -686,6 +694,96 @@ border-radius: 2px;
     overflow-y: hidden;
 }
 
+// modal loading animation
+.lds-roller {
+    display: none;
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+  }
+.lds-roller div {
+    animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    transform-origin: 40px 40px;
+}
+.lds-roller div:after {
+    content: " ";
+    display: block;
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #030212;
+    margin: -4px 0 0 -4px;
+}
+.lds-roller div:nth-child(1) {
+    animation-delay: -0.036s;
+}
+.lds-roller div:nth-child(1):after {
+    top: 63px;
+    left: 63px;
+}
+.lds-roller div:nth-child(2) {
+    animation-delay: -0.072s;
+}
+.lds-roller div:nth-child(2):after {
+    top: 68px;
+    left: 56px;
+}
+.lds-roller div:nth-child(3) {
+    animation-delay: -0.108s;
+}
+.lds-roller div:nth-child(3):after {
+    top: 71px;
+    left: 48px;
+}
+.lds-roller div:nth-child(4) {
+    animation-delay: -0.144s;
+}
+.lds-roller div:nth-child(4):after {
+    top: 72px;
+    left: 40px;
+}
+.lds-roller div:nth-child(5) {
+    animation-delay: -0.18s;
+}
+.lds-roller div:nth-child(5):after {
+    top: 71px;
+    left: 32px;
+}
+.lds-roller div:nth-child(6) {
+    animation-delay: -0.216s;
+}
+.lds-roller div:nth-child(6):after {
+    top: 68px;
+    left: 24px;
+}
+.lds-roller div:nth-child(7) {
+    animation-delay: -0.252s;
+}
+.lds-roller div:nth-child(7):after {
+    top: 63px;
+    left: 17px;
+}
+.lds-roller div:nth-child(8) {
+    animation-delay: -0.288s;
+}
+.lds-roller div:nth-child(8):after {
+    top: 56px;
+    left: 12px;
+}
+@keyframes lds-roller {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
   @media (max-width: 768px) { 
     .newsletterModal {
         display: none;
@@ -701,6 +799,10 @@ border-radius: 2px;
         box-shadow:0 0 20px rgba(0,0,0,.2);
     }
 
+    .newsletterModal_testimonials {
+        height: auto;
+    }
+
     .modal {
         position: fixed;
         z-index: 1060;
@@ -713,8 +815,9 @@ border-radius: 2px;
         top: 10%;
         left: 50%;
         transform: translateX(-50%);
-        height: 90%;
+        height: 95%;
         background-color: white;
+        margin-top: -5%;
     }
 
     .modalClose_wrapper {
@@ -733,8 +836,9 @@ border-radius: 2px;
         top: 10%;
         left: 50%;
         transform: translateX(-50%);
-        height: 90%;
+        height: 95%;
         background-color: white;
+        margin-top: -5%;
     }
 
     .grid-item {
@@ -747,6 +851,14 @@ border-radius: 2px;
         }
     }
   }
+
+  .modalPost_thumbnail {
+    position: static;
+    left: 0;
+    right: 0;
+    z-index: 9;
+    width: 450px;
+}
 
   @media (min-width: 768px) and (max-width: 1025px) {
     .socialMediaIcons {
@@ -766,10 +878,28 @@ border-radius: 2px;
         left: 50px !important;
         top: 0;
     }
+
+    .newsletterModal_testimonials {
+        overflow-y: scroll; 
+        height:270px;
+      }
 }
 
 @media (min-width: 1025px) and (max-width: 1460px) {
     .grid-item {
         width: 45%;
     }
+
+    .newsletterModal_testimonials {
+        overflow-y: scroll; 
+        height:260px;
+      }
 }
+
+@media (min-width: 1460px) {
+    .newsletterModal_testimonials {
+        overflow-y: scroll; 
+        height:340px;
+      }
+}
+

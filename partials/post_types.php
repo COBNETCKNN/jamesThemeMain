@@ -17,6 +17,24 @@ function james_theme_post_types() {
         'has_archive' => true,
         'supports' => array('editor', 'thumbnail', 'title'),
         'taxonomies' => array( 'category' ),
+        'show_in_rest' => true,
+    ));
+
+    // Ads post type
+    register_post_type('ads', array(
+        'public' => true,
+        'labels' => array( 
+            'name' => 'Ads',
+            'add_new_item' => 'Add New Ad',
+            'edit_item' => 'Edit Ad',
+            'all_items' => 'All Ads',
+            'singular_name' => 'Ad',
+        ),
+        'menu_icon' => 'dashicons-money-alt',
+        'rewrite' => array('slug' => 'ads'),
+        'has_archive' => true,
+        'supports' => array('title'),
+        'show_in_rest' => true,
     ));
 }
 add_action('init', 'james_theme_post_types');

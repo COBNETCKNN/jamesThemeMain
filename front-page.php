@@ -2,6 +2,11 @@
 
 
 <div class="homeInner bg-white h-fit min-h-screen container mx-auto">
+    <a class="modalRedirect_close__button cursor-pointer hidden lg:block">
+        <i class="fa-solid fa-x absolute top-8 right-10 text-2xl z-10"></i>
+    </a>
+    <a class="modalRedirect hidden">
+    </a>
     <div class="grid md:grid-cols-7 lg:grid-cols-6 gap-1 h-max pb-10">
         <!-- LEFT SIDE -->
         <div class="hidden md:block md:col-span-2 lg:col-span-1">
@@ -22,7 +27,7 @@
                 </div>
                 <!-- Custom Taxonomies -->
                 <!-- Acquisition Custom Taxonomy Sidebar -->
-                <div class="customTaxonomyWrapper my-6">
+                <div class="customTaxonomyWrapper mb-6 mt-2">
                     <h3 class="sidebarTitle p-1.5 w-fit bg-black text-white font-bold font-avenir uppercase text-sm italic">Acquisition</h3>
                     <div class="customTaxonomyTerms w-full xl:w-10/12 border-solid border-2 border-gray-100 rounded-lg shadow-md font-avenir">
                         <ul class="categories-filter flex grid grid-cols-2" name="categoryfilter">
@@ -168,29 +173,41 @@
             <!-- Blog posts -->
             <div id="response"  class="ajax-posts">
                 <div class="blogPostsWrapper md:mt-10">
-                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:mr-5 mx-3">
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:mr-5 mx-3 md:mx-0">
                             <?php 
 
-                            //query to load selected featured post on front page
-                            $postsPerPage = 12;
-                            $args = array(
-                                'post_type' => 'post',
-                                'posts_per_page' => $postsPerPage,
-                            );
+                                $i = 1;
+                                // The Loop
+                                if (have_posts()) :
+                                    while (have_posts()) :
+                                        the_post();
+                                
+                                // display add after certain number of posts 
+                                if($i == 3) {
+                                 get_template_part('partials/ads', 'post'); 
+                                }
 
-                            $blogPostQuery = new WP_Query($args);
+                                if($i == 8) {
+                                   get_template_part('partials/ads', 'post'); 
+                                }
 
-                            while($blogPostQuery->have_posts()){
-                                $blogPostQuery->the_post(); ?>
+                                if($i == 13) {
+                                    get_template_part('partials/ads', 'post'); 
+                                }
+                                ?>
 
-                                <div class="blogCardBlackOverlay">
+                                <?php $post_id = get_the_ID(); ?>
+
+                                <div class="blogCardBlackOverlay post-<?php echo $post_id; ?>">
                                     <div class="col-span-1 shadow-2xl">
-                                    <?php $thumb = get_the_post_thumbnail_url(); ?>
+                                    <?php 
+                                        $thumb = get_the_post_thumbnail_url(); 
+                                        
+                                    ?>
                                         <div class="relative blogPostCard rounded-xl" style="background-image: linear-gradient(rgba(66,32,6,0.7) 0%, rgb(134, 191, 255,0.3) 130%), url('<?php echo $thumb;?>')">
                                         <h1 class="blogPostCard_title font-sans text-white font-bold text-start"><?php the_title(); ?></h1>
                                         <!-- Gettng custom taxonomies associate with teh post -->
                                         <?php
-                                            $post_id = get_the_ID();
                                             $terms = get_the_terms($post_id, 'acquisition');
 
                                             if ($terms && !is_wp_error($terms)) {
@@ -214,7 +231,11 @@
                                     </div>
                                 </div>
                             <?php
-                            }
+                            $i++;
+                            
+                                        endwhile;
+                                        endif;
+                            wp_reset_postdata();
                             ?>
 
                     </div>
@@ -224,13 +245,15 @@
     </div>
     <!-- Content Modal -->
     <div id="modal" class="modal relative">
-        <div class="modalClose_wrapper p-2 md:hidden absolute z-10 top-6 right-10">
-            <a href="#" class="modalPost_close">
-                <i class="fa-solid fa-x text-2xl text-white text-2xl"></i>
+        <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+        <div class="modalClose_wrapper p-2 md:hidden absolute z-10 top-3 right-3">
+            <a href="#!" class="modalPost_close">
+                <i class="fa-solid fa-x text-lg text-white text-2xl"></i>
             </a>
         </div>
         <div class="modal-content">
             <div id="modal-content-placeholder"></div>
+            
         </div>
     </div>
     <!-- Newsletter modal -->

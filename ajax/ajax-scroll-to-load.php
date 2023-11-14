@@ -17,7 +17,7 @@ function more_post_ajax(){
     $the_query = new WP_Query( $args );  ?>
   
   <div class="blogPostsWrapper mt-4">
-          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:mr-5 mx-3">
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:mr-5 mx-3 md:mx-0">
   
               <?php if ( $the_query->have_posts() ) : 
                   while ( $the_query->have_posts() ) : $the_query->the_post(); ?>

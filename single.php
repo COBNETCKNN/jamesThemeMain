@@ -2,6 +2,9 @@
 
 
 <div class="homeInner bg-white h-fit min-h-screen container mx-auto">
+    <a href="<?php echo home_url(); ?>" class="modalRedirect_close__button cursor-pointer lg:block;">
+        <i class="fa-solid fa-x absolute top-8 right-10 text-2xl z-10"></i>
+    </a>
     <div class="grid md:grid-cols-6 gap-1 h-max pb-10">
         <!-- LEFT SIDE -->
         <div class="hidden md:block col-span-1">
@@ -22,7 +25,7 @@
                 </div>
                 <!-- Custom Taxonomies -->
                 <!-- Acquisition Custom Taxonomy Sidebar -->
-                <div class="customTaxonomyWrapper my-6">
+                <div class="customTaxonomyWrapper mb-6 mt-2">
                     <h3 class="sidebarTitle p-1.5 w-fit bg-black text-white font-bold font-avenir uppercase text-sm italic">Acquisition</h3>
                     <div class="customTaxonomyTerms w-10/12 border-solid border-2 border-gray-100 rounded-lg shadow-md font-avenir">
                         <ul class="categories-filter flex grid grid-cols-2" name="categoryfilter">
@@ -168,7 +171,7 @@
             <!-- Blog posts -->
             <div id="response"  class="ajax-posts">
                 <div class="blogPostsWrapper md:mt-10">
-                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:mr-5 mx-3">
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:mr-5 mx-3 md:mx-0">
                             <?php 
 
                             //query to load selected featured post on front page
@@ -225,9 +228,9 @@
     </div>
     <a href="<?php echo home_url(); ?>" class="modalRedirect bg-transparent"></a>
     <div class="singleModal visible">
-        <div class="modalClose_wrapper p-2 md:hidden absolute z-10 top-6 right-10">
+        <div class="modalClose_wrapper p-2 md:hidden absolute z-10 top-3 right-3">
             <a href="<?php echo home_url(); ?>" class="modalPost_close">
-                <i class="fa-solid fa-x text-2xl text-white text-2xl"></i>
+                <i class="fa-solid fa-x text-lg text-white text-2xl"></i>
             </a>
         </div>
         <div class="singleModal_content">
@@ -267,7 +270,7 @@
                     </div>
                 </div>
                 <!-- Content section of modal -->
-                <div class="modal_contentArea__wrapper px-10 md:px-20 py-10">
+                <div class="modal_contentArea__wrapper px-4 md:px-20 py-10">
                         <?php 
                             echo the_content();
                         ?>

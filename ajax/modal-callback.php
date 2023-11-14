@@ -20,7 +20,7 @@ function get_post_content() {
                 <!-- Thumbnail section of modal -->
                 <div class="relative modalPost_thumbnail__wrapper flex justify-center">
                     <div class="modalPost_thumbnail__blured" style="background-image: linear-gradient(rgba(66,32,6,0.7) 0%, rgb(134, 191, 255,0.3) 130%), url('<?php echo $thumb;?>')"></div>
-                    <div class="relative modalPost_thumbnail mx-auto">
+                    <div class="modalPost_thumbnail mx-auto static">
                         <?php 
                                 if ( has_post_thumbnail() ) {
                                     the_post_thumbnail( 'modal-thumbnail', array( 'class' => 'pb-5 mx-auto modal_post__thumbnail') );
@@ -52,7 +52,7 @@ function get_post_content() {
                     </div>
                 </div>
                 <!-- Content section of modal -->
-                <div class="modal_contentArea__wrapper px-10 md:px-20 py-10">
+                <div class="modal_contentArea__wrapper px-4 md:px-20 py-10">
                     <?php 
                         echo the_content();
                     ?>

@@ -11,6 +11,7 @@ function add_custom_taxonomies() {
     register_taxonomy('acquisition', 'post', array(
       // Hierarchical taxonomy (like categories)
       'hierarchical' => true,
+      'show_in_rest' => true,
       // This array of options controls the labels displayed in the WordPress Admin UI
       'labels' => array(
         'name' => _x( 'Acquisition', 'taxonomy general name' ),
@@ -37,6 +38,7 @@ function add_custom_taxonomies() {
     register_taxonomy('conversion', 'post', array(
         // Hierarchical taxonomy (like categories)
         'hierarchical' => true,
+        'show_in_rest' => true,
         // This array of options controls the labels displayed in the WordPress Admin UI
         'labels' => array(
             'name' => _x( 'Conversion', 'taxonomy general name' ),
@@ -63,6 +65,7 @@ function add_custom_taxonomies() {
     register_taxonomy('more', 'post', array(
         // Hierarchical taxonomy (like categories)
         'hierarchical' => true,
+        'show_in_rest' => true,
         // This array of options controls the labels displayed in the WordPress Admin UI
         'labels' => array(
             'name' => _x( 'More', 'taxonomy general name' ),
