@@ -911,7 +911,7 @@ border-radius: 2px;
         height:270px;
       }
 
-    .modal {
+    .modal, .singleModal {
     position: fixed;
     z-index: 1060;
     display: none;
@@ -926,7 +926,17 @@ border-radius: 2px;
     height: 85%;
     background-color: white;
     border-radius: 5px;
-}
+    }
+
+    .modal_contentArea__wrapper{
+        p, h1, h2 {
+            padding: 0.7rem 2rem !important;
+        }
+    }
+
+    .modalContent_author {
+        padding: 0.7rem 2rem !important;
+    }
 
 
 }

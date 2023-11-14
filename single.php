@@ -3,11 +3,11 @@
 
 <div class="homeInner bg-white h-fit min-h-screen container mx-auto">
     <a href="<?php echo home_url(); ?>" class="modalRedirect_close__button cursor-pointer">
-        <i class="fa-solid fa-x absolute top-8 right-10 text-2xl z-10"></i>
+        <i class="fa-solid fa-x absolute top-24 xl:top-10 right-10 text-2xl z-50"></i>
     </a>
-    <div class="grid md:grid-cols-6 gap-1 h-max pb-10">
+    <div class="grid lg:grid-cols-6 gap-1 h-max pb-10">
         <!-- LEFT SIDE -->
-        <div class="hidden md:block col-span-1">
+        <div class="hidden lg:block md:col-span-2 lg:col-span-1">
             <div class="leftSidebar">
                 <!-- Logo -->
                 <div class="logoWrapper">
@@ -108,7 +108,7 @@
         </div>
         <!-- RIGHT SIDE -->
         <div class="md:col-span-5 lg:col-span-5">
-            <div class="hidden md:grid md:grid-cols-1 lg:grid-cols-2 gap-4 h-20">
+            <div class="hidden md:grid md:grid-cols-1 xl:grid-cols-2 gap-4 h-20">
                 <!-- Newsletter area -->
                 <div class="flex justify-start items-center hidden xl:block">
                     <?php 
@@ -170,8 +170,8 @@
             </div>
             <!-- Blog posts -->
             <div id="response"  class="ajax-posts">
-                <div class="blogPostsWrapper mt-24 md:mt-10">
-                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:mr-5 mx-3 md:mx-0">
+                <div class="blogPostsWrapper mt-24 md:mt-3 lg:mt-10">
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:mr-5 mx-4 lg:mx-0">
                             <?php 
 
                             //query to load selected featured post on front page
@@ -187,7 +187,7 @@
                                 $blogPostQuery->the_post(); ?>
 
                                 <div class="blogCardBlackOverlay">
-                                    <div class="col-span-1 shadow-2xl">
+                                    <div class="col-span-1">
                                     <?php $thumb = get_the_post_thumbnail_url(); ?>
                                         <div class="relative blogPostCard rounded-xl" style="background-image: linear-gradient(rgba(66,32,6,0.7) 0%, rgb(134, 191, 255,0.3) 130%), url('<?php echo $thumb;?>')">
                                         <h1 class="blogPostCard_title font-sans text-white font-bold text-start"><?php the_title(); ?></h1>
@@ -297,7 +297,7 @@
                     </div>
                 </div>
                 <!-- Content section of modal -->
-                <div class="modal_contentArea__wrapper md:px-20 py-10">
+                <div class="modal_contentArea__wrapper lg:px-20 py-10">
                         <?php 
                             echo the_content();
                         ?>

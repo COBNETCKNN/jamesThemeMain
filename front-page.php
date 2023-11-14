@@ -3,7 +3,7 @@
 
 <div class="homeInner bg-white h-fit min-h-screen container mx-auto">
     <a class="modalRedirect_close__button cursor-pointer hidden">
-        <i class="fa-solid fa-x absolute top-24 right-10 text-2xl z-50"></i>
+        <i class="fa-solid fa-x absolute top-24 xl:top-10 right-10 text-2xl z-50"></i>
     </a>
     <a class="modalRedirect hidden">
     </a>
@@ -39,10 +39,10 @@
                                 foreach ( $terms as $term ) :
                                 
                                 ?>
-                                <li class="py-2">
+                                <li class="py-1">
                                     <a type="button"  data-category="<?= $term->term_id; ?>" 
                                         data-posttype="<?= $term->taxonomy?>" 
-                                            data-taxonomy="<?= $term->taxonomy?>"  data-slug="<?= $term->slug; ?>" class="js-filter-item w-fit block py-1 px-3 mx-2 font-light text-sm 2xl:text-base shadow-md acquisitionBackgroundItem-<?php echo $i; ?>" href="<?= $term->term_id; ?>" >
+                                            data-taxonomy="<?= $term->taxonomy?>"  data-slug="<?= $term->slug; ?>" class="js-filter-item w-fit block py-1 px-3 mr-2 font-light text-sm 2xl:text-base shadow-md acquisitionBackgroundItem-<?php echo $i; ?>" href="<?= $term->term_id; ?>" >
                                         <?= $term->name; ?>
                                 </a>
                                 </li>
@@ -65,7 +65,7 @@
                                 foreach ( $terms as $term ) :
                                 
                                 ?>
-                                <li class="py-2">
+                                <li class="py-1">
                                     <a type="button" data-category="<?= $term->term_id; ?>" 
                                         data-posttype="<?=$term->taxonomy?>" 
                                             data-taxonomy="<?=$term->taxonomy?>" data-slug="<?= $term->slug; ?>" class="js-filter-item w-fit block py-1 px-3 font-light text-sm 2xl:text-base shadow-md conversionBackgroundItem-<?php echo $i; ?>" href="<?= $term->term_id; ?>" >
@@ -91,10 +91,10 @@
                                 foreach ( $terms as $term ) :
                                 
                                 ?>
-                                <li class="py-2">
+                                <li class="py-1">
                                     <a type="button" data-category="<?= $term->term_id; ?>" 
                                         data-posttype="<?=$term->taxonomy?>" 
-                                            data-taxonomy="<?=$term->taxonomy?>" data-slug="<?= $term->slug; ?>" class="js-filter-item w-fit block py-1 px-3 mx-2 font-light text-sm 2xl:text-base shadow-md moreBackgroundItem-<?php echo $i; ?>" href="<?= $term->term_id; ?>" >
+                                            data-taxonomy="<?=$term->taxonomy?>" data-slug="<?= $term->slug; ?>" class="js-filter-item w-fit block py-1 px-3 mr-2 font-light text-sm 2xl:text-base shadow-md moreBackgroundItem-<?php echo $i; ?>" href="<?= $term->term_id; ?>" >
                                         <?= $term->name; ?>
                                 </a>
                                 </li>
