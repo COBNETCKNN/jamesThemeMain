@@ -3,13 +3,13 @@
 
 <div class="homeInner bg-white h-fit min-h-screen container mx-auto">
     <a class="modalRedirect_close__button cursor-pointer hidden">
-        <i class="fa-solid fa-x absolute top-8 right-10 text-2xl z-10"></i>
+        <i class="fa-solid fa-x absolute top-24 right-10 text-2xl z-50"></i>
     </a>
     <a class="modalRedirect hidden">
     </a>
-    <div class="grid md:grid-cols-7 lg:grid-cols-6 gap-1 h-max pb-10">
+    <div class="grid lg:grid-cols-6 gap-1 h-max pb-10">
         <!-- LEFT SIDE -->
-        <div class="hidden md:block md:col-span-2 lg:col-span-1">
+        <div class="hidden lg:block md:col-span-2 lg:col-span-1">
             <div class="leftSidebar">
                 <!-- Logo -->
                 <div class="logoWrapper">
@@ -27,10 +27,10 @@
                 </div>
                 <!-- Custom Taxonomies -->
                 <!-- Acquisition Custom Taxonomy Sidebar -->
-                <div class="customTaxonomyWrapper mb-6 mt-2">
+                <div class="customTaxonomyWrapper">
                     <h3 class="sidebarTitle p-1.5 w-fit bg-black text-white font-bold font-avenir uppercase text-sm italic">Acquisition</h3>
-                    <div class="customTaxonomyTerms w-full xl:w-10/12 border-solid border-2 border-gray-100 rounded-lg shadow-md font-avenir">
-                        <ul class="categories-filter flex grid grid-cols-2" name="categoryfilter">
+                    <div class="customTaxonomyTerms w-full xl:w-9/12 border-solid border-2 border-gray-100 rounded-lg shadow-md font-avenir">
+                        <ul class="categories-filter flex flex-wrap py-1" name="categoryfilter">
                             <?php
                             if( $terms = get_terms( array( 
                                 'taxonomy' => 'acquisition' ) ) ) : 
@@ -42,7 +42,7 @@
                                 <li class="py-2">
                                     <a type="button"  data-category="<?= $term->term_id; ?>" 
                                         data-posttype="<?= $term->taxonomy?>" 
-                                            data-taxonomy="<?= $term->taxonomy?>"  data-slug="<?= $term->slug; ?>" class="js-filter-item w-fit block py-1 px-3 font-light text-sm 2xl:text-base shadow-md acquisitionBackgroundItem-<?php echo $i; ?>" href="<?= $term->term_id; ?>" >
+                                            data-taxonomy="<?= $term->taxonomy?>"  data-slug="<?= $term->slug; ?>" class="js-filter-item w-fit block py-1 px-3 mx-2 font-light text-sm 2xl:text-base shadow-md acquisitionBackgroundItem-<?php echo $i; ?>" href="<?= $term->term_id; ?>" >
                                         <?= $term->name; ?>
                                 </a>
                                 </li>
@@ -82,7 +82,7 @@
                 <div class="customTaxonomyWrapper my-6">
                     <h3 class="sidebarTitle p-1.5 w-fit bg-black text-white font-bold font-avenir uppercase text-sm italic">More</h3>
                     <div class="customTaxonomyTerms w-full xl:w-10/12 border-solid border-2 border-gray-100 rounded-lg shadow-md font-avenir">
-                        <ul class="categories-filter flex grid grid-cols-2" name="categoryfilter">
+                        <ul class="categories-filter flex flex-wrap py-1" name="categoryfilter">
                             <?php
                             if( $terms = get_terms( array( 
                                 'taxonomy' => 'more' ) ) ) : 
@@ -94,7 +94,7 @@
                                 <li class="py-2">
                                     <a type="button" data-category="<?= $term->term_id; ?>" 
                                         data-posttype="<?=$term->taxonomy?>" 
-                                            data-taxonomy="<?=$term->taxonomy?>" data-slug="<?= $term->slug; ?>" class="js-filter-item w-fit block py-1 px-3 font-light text-sm 2xl:text-base shadow-md moreBackgroundItem-<?php echo $i; ?>" href="<?= $term->term_id; ?>" >
+                                            data-taxonomy="<?=$term->taxonomy?>" data-slug="<?= $term->slug; ?>" class="js-filter-item w-fit block py-1 px-3 mx-2 font-light text-sm 2xl:text-base shadow-md moreBackgroundItem-<?php echo $i; ?>" href="<?= $term->term_id; ?>" >
                                         <?= $term->name; ?>
                                 </a>
                                 </li>
@@ -172,8 +172,8 @@
             </div>
             <!-- Blog posts -->
             <div id="response"  class="ajax-posts">
-                <div class="blogPostsWrapper mt-24 md:mt-10">
-                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:mr-5 mx-3 md:mx-0">
+                <div class="blogPostsWrapper mt-24 md:mt-3 lg:mt-10">
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:mr-5 mx-4 lg:mx-0">
                             <?php 
 
                                 $i = 1;
@@ -199,7 +199,7 @@
                                 <?php $post_id = get_the_ID(); ?>
 
                                 <div class="blogCardBlackOverlay post-<?php echo $post_id; ?>">
-                                    <div class="col-span-1 shadow-2xl">
+                                    <div class="col-span-1">
                                     <?php 
                                         $thumb = get_the_post_thumbnail_url(); 
                                         

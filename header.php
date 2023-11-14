@@ -12,7 +12,7 @@
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 
-<header class="block md:hidden flex bg-white">
+<header class="block lg:hidden flex bg-white">
     <nav class="mobile-menu grid grid-cols-2 gap-4">
         <!-- Logo section -->
         <div class="logoWrapper">

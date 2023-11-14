@@ -100,5 +100,9 @@ jQuery(document).ready(function(jQuery){
         jQuery('.modalRedirect').on('click', function(){
             jQuery('.modalRedirect_close__button').removeClass('visible');
         });
+
+        jQuery('.modalRedirect_close__button').on('click', function(){
+            jQuery('.modalRedirect_close__button').removeClass('visible');
+        });
     })();
 });
