@@ -3,7 +3,7 @@
 
 <div class="homeInner bg-white h-fit min-h-screen container mx-auto">
     <a class="modalRedirect_close__button cursor-pointer hidden">
-        <i class="fa-solid fa-x absolute top-24 xl:top-10 right-10 text-2xl z-50"></i>
+        <i class="fa-solid fa-x absolute md:top-24 lg:top-12 xl:top-8 right-10 text-2xl z-50"></i>
     </a>
     <a class="modalRedirect hidden">
     </a>
@@ -172,7 +172,7 @@
             </div>
             <!-- Blog posts -->
             <div id="response"  class="ajax-posts">
-                <div class="blogPostsWrapper mt-24 md:mt-3 lg:mt-10">
+                <div class="blogPostsWrapper mt-24 md:mt-3 lg:mt-10 xl:mt-1 ml-0 md:ml-3 xl:-ml-6">
                     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:mr-5 mx-4 lg:mx-0">
                             <?php 
 
