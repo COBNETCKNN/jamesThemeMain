@@ -32,7 +32,7 @@
         <div class="navbar_icons__wrapper flex justify-end items-center">
             <div class="categories_icon mr-7">
                 <a href="#">
-                    <i class="fa-regular fa-paper-plane text-2xl text-black"></i>
+                    <i class="fa-solid fa-filter text-2xl text-black"></i>
                 </a>
             </div>
             <div class="newsletterModal_icon mr-7">

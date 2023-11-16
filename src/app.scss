@@ -387,9 +387,9 @@ body {
 .blogPostCard_title__modal {
     position: absolute;
     left: 50%;
-    transform: translate(-50%, 0);
+    transform: translate(-50%, -20%);
     top: 40%;
-    width: 450px;
+    width: 100%;
 }
 
 .modalPost_thumbnail__wrapper {
@@ -491,10 +491,10 @@ body {
     position:fixed;
     top: 50%;
     left: 50%;
-    transform:translate(-50%,-50%);
+    transform:translate(-50%,-65%);
     background: #fff;
     width: 800px;
-    height: 85%;
+    height: 90%;
     box-sizing:border-box;
     box-shadow:0 0 20px rgba(0,0,0,.2);
     overflow-y: auto;
@@ -805,7 +805,6 @@ border-radius: 2px;
 
   @media (max-width: 768px) { 
     .newsletterModal {
-        margin-top: 15%;
         display: none;
         position:fixed;
         top: 50%;
@@ -820,7 +819,7 @@ border-radius: 2px;
     }
 
     .newsletterModal_testimonials {
-        height: 460px;
+        height: 55vh;
     }
 
     .modal {
@@ -853,12 +852,12 @@ border-radius: 2px;
         overflow-y: auto;
         outline: 0;
         position: fixed;
-        top: 10%;
+        top: 15%;
         left: 50%;
         transform: translateX(-50%);
         height: 95%;
         background-color: white;
-        margin-top: -5%;
+        margin-top: -17%;
     }
 
     .grid-item {
@@ -892,11 +891,29 @@ border-radius: 2px;
     .modalRedirect_close__button {
         display: none !important; 
     }
+
+    .blogPostCard_title__modal_single {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, -20%);
+        top: 40%;
+        width: 100%;
+    }
 }
 
+    @media (max-width: 380px){
+        .newsletterModal_testimonials {
+            height: 57vH;
+        }
 
+        .modalClose_wrapper {
+            top: 2.5rem;
+        }
 
-
+        .newsletterModal_testimonials {
+            height: 45vh;
+        }
+    }
 
   @media (min-width: 768px) and (max-width: 1025px) {
     .socialMediaIcons {
@@ -923,10 +940,10 @@ border-radius: 2px;
 
     .newsletterModal_testimonials {
         overflow-y: scroll; 
-        height:270px;
+        height: 30vh;
       }
 
-    .modal, .singleModal {
+    .modal {
     position: fixed;
     z-index: 1060;
     display: none;
@@ -943,6 +960,23 @@ border-radius: 2px;
     border-radius: 5px;
     }
 
+    .singleModal {
+        position: fixed;
+        z-index: 1060;
+        display: none;
+        width: 700px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        outline: 0;
+        position: fixed;
+        top: 0%;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 85%;
+        background-color: white;
+        border-radius: 5px;
+        }
+
     .modal_contentArea__wrapper{
         p, h1, h2 {
             padding: 0.7rem 2rem !important;
@@ -956,8 +990,6 @@ border-radius: 2px;
     .newsletterModal {
         height: 68%;
     }
-
-
 }
 
 
@@ -979,7 +1011,33 @@ border-radius: 2px;
 @media (min-width: 1460px) {
     .newsletterModal_testimonials {
         overflow-y: scroll; 
-        height:390px;
+        height: 38vh;
       }
+}
+
+@media (min-width: 440px) and (max-width: 760px) {
+    .modalClose_wrapper {
+        top: 2rem;
+    }
+
+    .blogPostCard_title__modal_single {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 30%);
+        top: 30%;
+        width: 80%;
+    }
+}
+
+@media (min-width: 630px) and (max-width: 760px) {
+    .singleModal {
+        top: 20%;
+    }
+}
+
+@media (min-width: 760px) and (max-width: 850px) {
+    .newsletterModal_testimonials {
+        height: 40vh;
+    }
 }
 

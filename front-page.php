@@ -246,7 +246,7 @@
     <!-- Content Modal -->
     <div id="modal" class="modal relative">
         <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-        <div class="modalClose_wrapper p-2 md:hidden absolute z-10 top-5 right-3">
+        <div class="modalClose_wrapper p-2 md:hidden absolute z-10 top-2 right-3">
             <a href="#!" class="modalPost_close">
                 <i class="fa-solid fa-x text-lg text-white text-2xl"></i>
             </a>

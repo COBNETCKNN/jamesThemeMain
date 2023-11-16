@@ -3,7 +3,7 @@
 
 <div class="homeInner bg-white h-fit min-h-screen container mx-auto">
     <a href="<?php echo home_url(); ?>" class="modalRedirect_close__button cursor-pointer">
-        <i class="fa-solid fa-x absolute md:top-24 lg:top-12 xl:top-8 right-10 text-2xl z-50"></i>
+        <i class="fa-solid fa-x absolute top-24 lg:top-12 xl:top-8 right-5 text-2xl z-50"></i>
     </a>
     <div class="grid lg:grid-cols-6 gap-1 h-max pb-10">
         <!-- LEFT SIDE -->
@@ -228,7 +228,7 @@
         </div>
     </div>
     <a href="<?php echo home_url(); ?>" class="modalRedirect bg-transparent"></a>
-    <div class="singleModal visible">
+    <div class="singleModal visible mt-24">
         <div class="modalClose_wrapper p-2 md:hidden absolute z-10 top-5 right-3">
             <a href="<?php echo home_url(); ?>" class="modalPost_close">
                 <i class="fa-solid fa-x text-lg text-white text-2xl"></i>
@@ -273,7 +273,9 @@
                 </div>
                 <!-- Mobile thumbnail -->
                 <div class="md:hidden relative mobileThumbnail_wrapper h-[200px] w-full" style="background-image: url('<?php echo $thumb;?>')">
-                    <h1 class="blogPostCard_title__modal text-2xl font-sans text-white font-bold text-center"><?php the_title(); ?></h1>
+                    <div class="flex flex-wrap">
+                        <h1 class="blogPostCard_title__modal_single text-2xl font-sans text-white font-bold text-center"><?php the_title(); ?></h1>
+                    </div>
                     <div class="">
                         <?php
                         $post_id = get_the_ID();

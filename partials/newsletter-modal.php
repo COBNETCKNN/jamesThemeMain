@@ -1,6 +1,6 @@
 <div class="newsletterModal relative">
     <div class="newsletterModal_body">
-        <a href="#" class="newsletterModal_close absolute top-4 right-4">
+        <a href="#" class="newsletterModal_close absolute top-20 md:top-5 right-4">
             <i class="fa-solid fa-x text-black text-2xl"></i>
         </a>
         <?php 
@@ -12,7 +12,7 @@
 
             while($newsletterPageQuery->have_posts()){
                 $newsletterPageQuery->the_post(); ?> 
-                <div class="newsletterModal_warpper mt-10">
+                <div class="newsletterModal_warpper mt-24 md:mt-10">
                     <div class="newsletterModal_content__warpper text-left font-avenir text-base font-normal px-5">
                         <?php the_content(); ?>
                     </div>
