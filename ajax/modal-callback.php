@@ -19,7 +19,7 @@ function get_post_content() {
             <div class="modalPost_wrapper mx-auto">
                 <!-- Thumbnail section of modal tablet and desktop -->
                 <div class="relative modalPost_thumbnail__wrapper flex justify-center">
-                    <div class="hidden md:block modalPost_thumbnail__blured" style="background-image: linear-gradient(rgba(66,32,6,0.7) 0%, rgb(134, 191, 255,0.3) 130%), url('<?php echo $thumb;?>')"></div>
+                    <div class="hidden md:block modalPost_thumbnail__blured" style="background-image: linear-gradient(rgba(0,47,75,0.5) 0%, rgba(220, 66, 37, 0.3) 130%), url('<?php echo $thumb;?>')"></div>
                     <div class="modalPost_thumbnail relative mx-auto">
                         <?php 
                                 if ( has_post_thumbnail() ) {

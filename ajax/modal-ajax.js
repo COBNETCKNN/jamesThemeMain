@@ -8,7 +8,7 @@ jQuery(document).ready(function($) {
         var postSlug = $(this).data('slug');
 
         // changing URL based on the post slug
-        window.history.pushState(null, null, postSlug);
+        window.history.pushState(null, null, '/' + postSlug);
 
         $('body').css('overflow', 'hidden');
         

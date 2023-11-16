@@ -25,9 +25,9 @@
                 </div>
                 <!-- Custom Taxonomies -->
                 <!-- Acquisition Custom Taxonomy Sidebar -->
-                <div class="customTaxonomyWrapper mb-6 mt-2">
+                <div class="customTaxonomyWrapper">
                     <h3 class="sidebarTitle p-1.5 w-fit bg-black text-white font-bold font-avenir uppercase text-sm italic">Acquisition</h3>
-                    <div class="customTaxonomyTerms w-10/12 border-solid border-2 border-gray-100 rounded-lg shadow-md font-avenir">
+                    <div class="customTaxonomyTerms w-full xl:w-9/12 border-solid border-2 border-gray-100 rounded-lg shadow-md font-avenir">
                         <ul class="categories-filter flex flex-wrap py-1" name="categoryfilter">
                             <?php
                             if( $terms = get_terms( array( 
@@ -37,10 +37,10 @@
                                 foreach ( $terms as $term ) :
                                 
                                 ?>
-                                <li class="py-1">
+                                <li class="py-2">
                                     <a type="button"  data-category="<?= $term->term_id; ?>" 
                                         data-posttype="<?= $term->taxonomy?>" 
-                                            data-taxonomy="<?= $term->taxonomy?>"  data-slug="<?= $term->slug; ?>" class="js-filter-item w-fit block py-1 px-3 mr-2 font-light text-base shadow-md acquisitionBackgroundItem-<?php echo $i; ?>" href="<?= $term->term_id; ?>" >
+                                            data-taxonomy="<?= $term->taxonomy?>"  data-slug="<?= $term->slug; ?>" class="js-filter-item w-fit block py-1 px-3 mr-4 font-light text-sm shadow-md acquisitionBackgroundItem-<?php echo $i; ?>" href="<?= $term->taxonomy . '/' . $term->slug ?>" >
                                         <?= $term->name; ?>
                                 </a>
                                 </li>
@@ -53,7 +53,7 @@
                 <!-- Conversion Custom Taxonomy Sidebar -->
                 <div class="customTaxonomyWrapper my-6">
                     <h3 class="sidebarTitle p-1.5 w-fit bg-black text-white font-bold font-avenir uppercase text-sm italic">Conversion</h3>
-                    <div class="customTaxonomyTerms w-8/12 border-solid border-2 border-gray-100 rounded-lg shadow-md font-avenir">
+                    <div class="customTaxonomyTerms w-full xl:w-8/12 border-solid border-2 border-gray-100 rounded-lg shadow-md font-avenir">
                         <ul class="categories-filter" name="categoryfilter">
                             <?php
                             if( $terms = get_terms( array( 
@@ -63,10 +63,10 @@
                                 foreach ( $terms as $term ) :
                                 
                                 ?>
-                                <li class="py-1">
+                                <li class="py-2">
                                     <a type="button" data-category="<?= $term->term_id; ?>" 
                                         data-posttype="<?=$term->taxonomy?>" 
-                                            data-taxonomy="<?=$term->taxonomy?>" data-slug="<?= $term->slug; ?>" class="js-filter-item w-fit block py-1 px-3 font-light text-base shadow-md conversionBackgroundItem-<?php echo $i; ?>" href="<?= $term->term_id; ?>" >
+                                            data-taxonomy="<?=$term->taxonomy?>" data-slug="<?= $term->slug; ?>" class="js-filter-item w-fit block py-1 px-3 font-light text-sm shadow-md conversionBackgroundItem-<?php echo $i; ?>" href="<?= $term->taxonomy . '/' . $term->slug ?>" >
                                         <?= $term->name; ?>
                                 </a>
                                 </li>
@@ -79,8 +79,8 @@
                 <!-- More Custom Taxonomy Sidebar -->
                 <div class="customTaxonomyWrapper my-6">
                     <h3 class="sidebarTitle p-1.5 w-fit bg-black text-white font-bold font-avenir uppercase text-sm italic">More</h3>
-                    <div class="customTaxonomyTerms w-10/12 border-solid border-2 border-gray-100 rounded-lg shadow-md font-avenir">
-                        <ul class="categories-filter flex grid grid-cols-2" name="categoryfilter">
+                    <div class="customTaxonomyTerms w-full xl:w-10/12 border-solid border-2 border-gray-100 rounded-lg shadow-md font-avenir">
+                        <ul class="categories-filter flex flex-wrap py-1" name="categoryfilter">
                             <?php
                             if( $terms = get_terms( array( 
                                 'taxonomy' => 'more' ) ) ) : 
@@ -89,10 +89,10 @@
                                 foreach ( $terms as $term ) :
                                 
                                 ?>
-                                <li class="py-1">
+                                <li class="py-2">
                                     <a type="button" data-category="<?= $term->term_id; ?>" 
                                         data-posttype="<?=$term->taxonomy?>" 
-                                            data-taxonomy="<?=$term->taxonomy?>" data-slug="<?= $term->slug; ?>" class="js-filter-item w-fit block py-1 px-3 mr-2 font-light text-base shadow-md moreBackgroundItem-<?php echo $i; ?>" href="<?= $term->term_id; ?>" >
+                                            data-taxonomy="<?=$term->taxonomy?>" data-slug="<?= $term->slug; ?>" class="js-filter-item w-fit block py-1 px-3 mr-4 font-light text-sm shadow-md moreBackgroundItem-<?php echo $i; ?>" href="<?= $term->taxonomy . '/' . $term->slug ?>" >
                                         <?= $term->name; ?>
                                 </a>
                                 </li>
@@ -106,6 +106,7 @@
                 <?php get_template_part( 'partials/newsletter', 'sidebar' ); ?>
             </div>
         </div>
+
         <!-- RIGHT SIDE -->
         <div class="md:col-span-5 lg:col-span-5">
             <div class="hidden md:grid md:grid-cols-1 xl:grid-cols-2 gap-4 h-20">
@@ -189,7 +190,7 @@
                                 <div class="blogCardBlackOverlay">
                                     <div class="col-span-1">
                                     <?php $thumb = get_the_post_thumbnail_url(); ?>
-                                        <div class="relative blogPostCard rounded-xl" style="background-image: linear-gradient(rgba(66,32,6,0.7) 0%, rgb(134, 191, 255,0.3) 130%), url('<?php echo $thumb;?>')">
+                                        <div class="relative blogPostCard rounded-xl" style="background-image: linear-gradient(rgba(0,47,75,0.5) 0%, rgba(220, 66, 37, 0.3) 130%), url('<?php echo $thumb;?>')">
                                         <h1 class="blogPostCard_title font-sans text-white font-bold text-start"><?php the_title(); ?></h1>
                                         <!-- Gettng custom taxonomies associate with teh post -->
                                         <?php
@@ -238,7 +239,7 @@
             <div class="modalPost_wrapper mx-auto">
                 <!-- Thumbnail section of modal -->
                 <div class="relative modalPost_thumbnail__wrapper flex justify-center">
-                    <div class="modalPost_thumbnail__blured" style="background-image: linear-gradient(rgba(66,32,6,0.7) 0%, rgb(134, 191, 255,0.3) 130%), url('<?php echo $thumb;?>')"></div>
+                    <div class="modalPost_thumbnail__blured" style="background-image: linear-gradient(rgba(0,47,75,0.5) 0%, rgba(220, 66, 37, 0.3) 130%), url('<?php echo $thumb;?>')"></div>
                     <div class="relative modalPost_thumbnail mx-auto">
                         <?php 
                                 if ( has_post_thumbnail() ) {

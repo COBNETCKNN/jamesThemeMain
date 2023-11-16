@@ -175,25 +175,26 @@
             <div id="response"  class="ajax-posts">
                 <div class="blogPostsWrapper mt-24 md:mt-3 lg:mt-10 xl:mt-1 ml-0 md:ml-3 xl:-ml-6">
                     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:mr-5 mx-4 lg:mx-0">
-                                <?php 
-                                    $i = 1;
-                                    // The Loop
-                                    if (have_posts()) :
-                                        while (have_posts()) :
-                                            the_post();
-                                    
-                                    // display add after certain number of posts 
-                                    if($i == 3) {
-                                    get_template_part('partials/ads', 'post'); 
-                                    }
+                            <?php 
 
-                                    if($i == 8) {
-                                    get_template_part('partials/ads', 'post'); 
-                                    }
+                                $i = 1;
+                                // The Loop
+                                if (have_posts()) :
+                                    while (have_posts()) :
+                                        the_post();
+                                
+                                // display add after certain number of posts 
+                                if($i == 3) {
+                                 get_template_part('partials/ads', 'post'); 
+                                }
 
-                                    if($i == 13) {
-                                        get_template_part('partials/ads', 'post'); 
-                                    }
+                                if($i == 8) {
+                                   get_template_part('partials/ads', 'post'); 
+                                }
+
+                                if($i == 13) {
+                                    get_template_part('partials/ads', 'post'); 
+                                }
                                 ?>
 
                                 <?php $post_id = get_the_ID(); ?>

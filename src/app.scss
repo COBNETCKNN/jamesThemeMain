@@ -245,6 +245,7 @@ body {
 .blogPostCard_title {
     font-size: 21px;
     margin-left: 20px;
+    margin-right: 20px;
     padding-top: 20px;
 }
 
@@ -523,7 +524,7 @@ body {
     transform:translate(-50%,-50%);
     background: #fff;
     width: 420px;
-    height: 70%;
+    height: 75%;
     text-align: center;
     box-sizing:border-box;
     box-shadow:0 0 20px rgba(0,0,0,.2);
@@ -555,7 +556,7 @@ body {
 
   .newsletterModal_body {
     max-height: calc(100%);
-    overflow-y: auto;
+    overflow-y: hidden;
 }
 
 // social share sectioin inside modal
@@ -791,6 +792,17 @@ border-radius: 2px;
 
 }
 
+.newsletterImage_wrapper, .newsletter_button__wrapper {
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.newsletter_button__wrapper {
+    width: 150px;
+    text-align: center;
+}
+
+
   @media (max-width: 768px) { 
     .newsletterModal {
         margin-top: 15%;
@@ -884,6 +896,8 @@ border-radius: 2px;
 
 
 
+
+
   @media (min-width: 768px) and (max-width: 1025px) {
     .socialMediaIcons {
         a {
@@ -938,6 +952,10 @@ border-radius: 2px;
     .modalContent_author {
         padding: 0.7rem 2rem !important;
     }
+    
+    .newsletterModal {
+        height: 68%;
+    }
 
 
 }
@@ -952,12 +970,16 @@ border-radius: 2px;
         overflow-y: scroll; 
         height:260px;
       }
+
+    .newsletterModal {
+        height: 66%;
+    }
 }
 
 @media (min-width: 1460px) {
     .newsletterModal_testimonials {
         overflow-y: scroll; 
-        height:340px;
+        height:390px;
       }
 }
 

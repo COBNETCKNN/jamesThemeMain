@@ -3,12 +3,10 @@
     $(document).ready(function(){
         $(document).on('click', '.js-filter-item', function(event){
             (event).preventDefault();
-
+            
             var category = $(this).data('category');
+            var taxonomy = $(this).data('posttype');
             var categorySlug = $(this).data('slug');
-
-            // changing URL based on the category slug
-            window.history.pushState(null, null, categorySlug);
 
             $.ajax({
                 url: wpAjax.ajaxUrl,
@@ -21,6 +19,9 @@
                 type: 'post',
                 success: function(result){
                     $('#response').html(result);
+                    // changing URL based on the category slug
+                    window.history.pushState(null, null, '/' + taxonomy + '/' + categorySlug + '/');
+
                 },
                 error: function(result){
                     console.warn(result);
